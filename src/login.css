@@ -1,0 +1,46 @@
+.login-innerCard {
+  justify-content: space-around;
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  background-color: rgb(230, 198, 170);
+  border-radius: 60px;
+  padding: 10px;
+  height: 30em;
+  width: 35em;
+  margin-top: -70px;
+  box-shadow: 11px 11px 12px 12px gray;
+}
+
+input {
+  border: none;
+  width: 50%;
+  height: 8%;
+  background-color: rgb(225, 224, 224);
+  border-radius: 20px;
+
+}
+
+.cardbuttons
+{
+  display: flex;
+}
+input:hover{
+  outline: none;
+  background-color: lightgray;
+}
+
+input[placeholder] {
+  text-align: center;
+}
+.loginbutton{
+  border: none;
+  width: 150px;
+  height: 50px;
+  border-radius: 20px;
+  margin: 5px 10px;
+}
+
+.nameinput:hover {
+  outline: none;
+}
