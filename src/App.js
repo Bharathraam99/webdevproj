@@ -1,12 +1,16 @@
 import "./App.css";
 
 import React from "react";
+
 import Card from "./card";
+
+import Feed from "./Feed/feed";
+
 
 const App = () => {
   return (
-    <div className="login-outdivcard">
-      <Card></Card>
+    <div>
+      <Feed></Feed>
     </div>
   );
 };
