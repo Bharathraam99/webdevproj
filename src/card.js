@@ -14,33 +14,37 @@ async function loginUser(credentials) {
         .then(data => data.json())
 }
 
-const Card = ({ setToken }) => {
+const Card = ({setToken}) => {
     let [username, setUsername] = useState('');
     let [password, setPassword] = useState('');
 
     const handleSubmit = async e => {
         e.preventDefault();
-        const token = await loginUser({
-            username,
-            password
-        });
-        setToken(token);
-        console.log(token);
+        try {
+            const token = await loginUser({
+                username,
+                password
+            });
+            setToken(token);
+            console.log(token);
+        } catch (e) {
+            alert("Please enter valid username and password");
+        }
     }
 
-  return (
-    <div className="login-innerCard">
-      <h1>Strava - Share what you do !</h1>
-      <input value={username} type="text" placeholder="Name"
-             onChange={(event) => setUsername(event.target.value)}/>
-      <input value={password} type="password" placeholder="Password"
-             onChange={(event) => setPassword(event.target.value)}/>
-      <div className="cardbuttons">
-        <button className="loginbutton" onClick={handleSubmit}>Login</button>
-        <button className="loginbutton">Signup</button>
-      </div>
-    </div>
-  );
+    return (
+        <div className="login-innerCard">
+            <h1>Strava - Share what you do !</h1>
+            <input value={username} type="text" placeholder="Name"
+                   onChange={(event) => setUsername(event.target.value)}/>
+            <input value={password} type="password" placeholder="Password"
+                   onChange={(event) => setPassword(event.target.value)}/>
+            <div className="cardbuttons">
+                <button className="loginbutton" onClick={handleSubmit}>Login</button>
+                <button className="loginbutton">Signup</button>
+            </div>
+        </div>
+    );
 };
 
 Card.propTypes = {
