@@ -10,7 +10,7 @@ import Strongman from "./Strongman";
 const Search = () => {
     const {pathname} = useLocation()
     const [ignore, search, type] = pathname.split("/");
-    
+
     return (
         <div className={"container"}>
             <ul className="nav nav-tabs mb-2 mt-2">
