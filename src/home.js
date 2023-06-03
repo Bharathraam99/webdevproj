@@ -1,8 +1,13 @@
 import React from "react";
+import {Link} from "react-router-dom";
 
 const Home = () => {
   return (
-      <h1>WELCOME TO HOME</h1>
+      <div>
+        <h1>WELCOME TO HOME</h1>
+        <Link to={"/search"}>SEARCH</Link>
+      </div>
+
   )
 }
 
