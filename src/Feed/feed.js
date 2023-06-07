@@ -1,8 +1,9 @@
 import React from "react";
-import "./feed.css";
+import "./feeds.css";
 import { Link } from "react-router-dom";
 import { AiOutlineSearch } from "react-icons/ai";
 import { GoGear } from "react-icons/go";
+
 function Feed() {
 
   return (
