@@ -2,6 +2,7 @@ import React from "react";
 import CreatePost from "./TrainerFeed/create-post";
 import PostList from "./TrainerFeed";
 
+
 const Home = () => {
     return (
         <>

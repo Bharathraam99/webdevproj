@@ -1,6 +1,6 @@
 import {createSlice} from "@reduxjs/toolkit";
-import posts from '../posts.json'
-import users from '../users.json'
+import posts from '../TrainerFeed/posts.json'
+import users from '../TrainerFeed/users.json'
 
 const currentUser = {
     "userId": 1,
