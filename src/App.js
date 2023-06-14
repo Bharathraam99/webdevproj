@@ -3,6 +3,7 @@ import "./App.css";
 import React, {useState} from "react";
 import Card from "./card";
 import Home from "./home";
+import Post from "./Feed/post";
 import {BrowserRouter} from "react-router-dom";
 import {Routes, Route, Navigate} from "react-router"
 
@@ -22,6 +23,7 @@ const App = () => {
                        element={<Home/>}/>
                 <Route path="/home/*"
                        element={<Home/>}/>
+<Route path="/post" element={<Post/>} />
             </Routes>
         </BrowserRouter>
     );

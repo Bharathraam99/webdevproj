@@ -3,6 +3,7 @@ import "./feeds.css";
 import { Link } from "react-router-dom";
 import { AiOutlineSearch } from "react-icons/ai";
 import { GoGear } from "react-icons/go";
+import Post from "./post";
 
 function Feed() {
 
@@ -22,7 +23,7 @@ function Feed() {
            </div>
            <ul className="nav nav-pills mb-2 mt-2">
              <li className="nav-item">
-               <a href= "./post" className="nav-link active">Feed</a>
+               <Link to="/post" className="nav-link active">Feed</Link>
              </li>
              <li className="nav-item">
                <a href= "./profile" className="nav-link">Profile</a>
