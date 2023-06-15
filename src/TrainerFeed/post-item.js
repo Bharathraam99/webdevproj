@@ -1,6 +1,6 @@
 import React from "react";
 import {useDispatch} from "react-redux";
-import {deletePost} from "../reducers/posts-reducer";
+import {deletePost} from "./reducers/posts-reducer";
 
 const PostItem = ({post}) => {
     const dispatch = useDispatch();

@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import {useDispatch} from "react-redux";
-import {createPost} from "../reducers/posts-reducer";
+import {createPost} from "./reducers/posts-reducer";
 
 const CreatePost = () => {
     let [post, setPost] = useState('');

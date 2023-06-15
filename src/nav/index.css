@@ -1,0 +1,26 @@
+      .list-group-item {
+        position: relative;
+        padding-left: 20px;
+      }
+
+      .list-group-item::before {
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+
+      .wd-icon {
+        display: inline-block;
+        margin-right: 8px;
+      }
+
+      .wd-text {
+        display: none;
+      }
+
+      @media (min-width: 1200px) {
+        .wd-text {
+          display: inline;
+        }
+      }

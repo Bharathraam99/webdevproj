@@ -1,10 +1,11 @@
 import {createSlice} from "@reduxjs/toolkit";
-import posts from '../TrainerFeed/posts.json'
-import users from '../TrainerFeed/users.json'
+import posts from '../../post-list/posts.json'
+import users from '../users.json'
 
 const currentUser = {
     "userId": 1,
     "username": "mma",
+    "postPic": "samplepost.webp",
     "profilePic": "default.jpg",
     "email": "abc@gmail.com",
     "phone": 123455,
