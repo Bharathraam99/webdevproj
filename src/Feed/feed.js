@@ -24,7 +24,7 @@ function Feed() {
            </div>
            <ul className="nav nav-pills mb-2 mt-2">
              <li className="nav-item">
-               <Link to="/post" className="nav-link active">Feed</Link>
+               <Link to="/post" className="nav-link">Feed</Link>
              </li>
              <li className="nav-item">
                <a href= "./profile" className="nav-link">Profile</a>
