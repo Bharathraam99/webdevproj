@@ -11,18 +11,19 @@ import {configureStore} from "@reduxjs/toolkit";
 import {Provider} from "react-redux";
 import NavigationSidebar from "./nav/index";
 import postsReducer from "./TrainerFeed/reducers/posts-reducer.js"
-const store = configureStore({reducer:{posts:postsReducer}})
+import userReducer from "./TrainerFeed/reducers/userSlice.js"
+
+const store = configureStore({
+  reducer: {
+    posts: postsReducer,
+    user: userReducer,
+    // Add other reducers here if needed
+  },
+});
 
 const App = () => {
 
-const [token, setToken] = useState();
-    if (!token) {
-        return (
-            <div className="login-outdivcard">
-                <Card setToken={setToken}/>
-            </div>
-        )
-    }
+
      return (
         <Provider store={store}>
         <BrowserRouter>
