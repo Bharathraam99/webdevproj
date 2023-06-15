@@ -11,6 +11,7 @@ function ProtectedRoute({ children }) {
         const load = async () => {
 
             const { payload } = await dispatch(profileThunk(token));
+            //console.log(payload)
             if (!payload) {
                 navigate("/login");
             }

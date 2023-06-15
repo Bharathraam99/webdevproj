@@ -9,6 +9,7 @@ function AuthContext ({ children }) {
     const token=useSelector((state)=>state.user.token)
     useEffect(() => {
         const load = async () => {
+            console.log(token);
             await dispatch(profileThunk(token));
             setLoading(false);
         };
@@ -18,8 +19,8 @@ function AuthContext ({ children }) {
 
     if (loading) {
         return (
-            <div class="spinner-border" role="status">
-                <span class="visually-hidden">Loading...</span>
+            <div className="spinner-border" role="status">
+                <span className="visually-hidden">Loading...</span>
             </div>
         );
     } else {
