@@ -1,0 +1,17 @@
+[
+  {
+    "postId": 123,
+    "text": "Hello I am here",
+    "image": "default.jpg",
+    "upvote": 123,
+    "userId": 1
+  },
+  {
+    "postId": 345,
+    "text": "Hello I am here 2",
+    "image": "default.jpg",
+    "upvote": 456,
+    "userId": 2
+  }
+
+]

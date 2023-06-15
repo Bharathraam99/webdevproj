@@ -1,15 +1,7 @@
 import React from "react";
-import CreatePost from "./TrainerFeed/create-post";
-import PostList from "./TrainerFeed";
-
+import Feed from "./Feed/feed";
 const Home = () => {
-    return (
-        <>
-            <h1>WELCOME TO HOME</h1>
-            <CreatePost/>
-            <PostList/>
-        </>
-    )
-}
+  return <Feed></Feed>;
+};
 
 export default Home;
