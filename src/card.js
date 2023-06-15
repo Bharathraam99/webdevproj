@@ -15,9 +15,9 @@ async function loginUser(credentials) {
 }
 
 const Card = ({setToken}) => {
+
     let [username, setUsername] = useState('');
     let [password, setPassword] = useState('');
-
     const handleSubmit = async e => {
         e.preventDefault();
         try {

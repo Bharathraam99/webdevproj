@@ -5,6 +5,7 @@
     "profilePic": "default.jpg",
     "email": "abc@gmail.com",
     "firstname": "abc",
+    "postPic": "samplepost.webp",
     "lastname": "def",
     "phone": 123455,
     "gender": "M",
@@ -13,6 +14,7 @@
   {
     "userId": 2,
     "username": "kaka",
+    "postPic": "samplepost.webp",
     "profilePic": "default.jpg",
     "email": "kaka@gmail.com",
     "firstname": "abc",

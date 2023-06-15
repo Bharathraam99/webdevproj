@@ -1,15 +1,17 @@
-import React from "react";
+
+import React, {useState} from "react";
 import { Link, useLocation } from "react-router-dom";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import "./index.css";
+import Card from "../card";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faUser, faMinusCircle, faSignIn, faUserPlus, faEllipsisH} from '@fortawesome/free-solid-svg-icons';
 import { useSelector } from "react-redux";
 
 const NavigationSidebar = () => {
+const { pathname } = useLocation();
 
 
-  const { pathname } = useLocation();
   const [ignore, tuiter, active] = pathname.split("/");
   const links = [ "home", "explore", "notifications", "messages", "bookmarks"];
   const icons = {
@@ -47,6 +49,10 @@ const NavigationSidebar = () => {
         </Link>
 
       ))}
+       <Link className={`list-group-item text-capitalize ${active === "register" ? "active" : ""}`} to="/card">
+                            <FontAwesomeIcon className="pe-2" icon={faUserPlus} />
+                            <span className="d-none d-xl-inline">{"register / Sign in"}</span>
+                        </Link>
 
                   <Link className={`list-group-item text-capitalize ${active === "more" ? "active" : ""}`} to="/tuiter/more">
                                         <FontAwesomeIcon className="pe-2" icon={faEllipsisH} />

@@ -29,9 +29,11 @@ let [post, setPost] = useState('');
      </div>
      <div className="col-10">
        <textarea value={post} placeholder="Write a new post"
-               className="form-control border-0"
+               className="form-control border rounded"
+               style={{ height: '80px' }}
                onChange={(event) => setPost(event.target.value)}>
        </textarea>
+
        <div>
          <button className="rounded-pill btn btn-primary  float-end mt-2 ps-3 pe-3 fw-bold"
                  onClick={postClickHandler}>

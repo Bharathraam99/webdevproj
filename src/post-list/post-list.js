@@ -5,7 +5,7 @@ import PostItem from "./post-item";
 const PostList = () => {
  const {posts} = useSelector((state) => state.posts)
   return (
-   <ul className="list-group">
+   <ul className="list-group rounded-5">
               {
                   posts.map(post => {
                       return <PostItem

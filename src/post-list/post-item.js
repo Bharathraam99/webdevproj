@@ -29,6 +29,7 @@ return(
       <span className="text-muted">{post.username} . {post.time}</span>
     </div>
     <div>{post.text}</div>
+    <img src={require(`../images/${post.postPic}`)} height={308} width={408} alt="Sample" />
   </div>
      <div className="col-8">
        <div>

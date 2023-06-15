@@ -10,7 +10,7 @@ function Feed() {
 
   return (
   <>
-    <div className="feed-page">
+    <div className="feed-page" style={{ backgroundColor: "#8AC7DB" }}>
 
       <div className="row">
              <div className="col-11 position-relative">
@@ -22,9 +22,9 @@ function Feed() {
                <GoGear className="wd-top-4 float-end fs-3 position-relative"/>
              </div>
            </div>
-           <ul className="nav nav-pills mb-2 mt-2">
+           <ul className="nav nav-pills mb-2 mt-2 wd">
              <li className="nav-item">
-               <Link to="/post" className="nav-link">Feed</Link>
+               <Link to="/post" className="nav-link active">Feed</Link>
              </li>
              <li className="nav-item">
                <a href= "./profile" className="nav-link">Profile</a>
