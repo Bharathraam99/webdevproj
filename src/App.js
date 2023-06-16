@@ -2,18 +2,22 @@ import "./App.css";
 import React, {useState} from "react";
 import Card from "./card";
 import Home from "./home";
+import Routine from "./Feed/routine";
+import Profile from "./Feed/profile";
+import Users from "./Feed/users";
 import {BrowserRouter} from "react-router-dom";
 import {Routes, Route, Navigate} from "react-router"
 //import PostList from "./TrainerFeed";
 import {configureStore} from "@reduxjs/toolkit";
 import {Provider} from "react-redux";
+import NavigationSidebar from "./nav/index";
 import postsReducer from "./reducers/posts-reducer.js"
 import authReducer from "./reducers/auth-reducer.js";
 import userReducer from "./reducers/userSlice";
 import AuthContext from "./auth-context";
 import ProtectedRoute from "./protected-route";
 import Post from "./Feed/post";
-
+import Search from "./Feed/search";
 const store = configureStore({
     reducer: {
         posts: postsReducer,
@@ -54,6 +58,16 @@ const App = () => {
                                    </ProtectedRoute>}/>
                         <Route path="/post" element={
                             <ProtectedRoute><Post/></ProtectedRoute>}/>
+                            <Route path="/routine" element={
+                            <ProtectedRoute><Routine/></ProtectedRoute>}/>
+                            <Route path="/search" element={
+                            <ProtectedRoute><Search/></ProtectedRoute>}/>
+                            <Route path="/users" element={
+                                                        <ProtectedRoute><Users/></ProtectedRoute>}/>
+                                                        <Route path="/profile" element={
+                                                                                    <ProtectedRoute><Profile/></ProtectedRoute>}/>
+                            <Route path="/nav" element={
+                            <ProtectedRoute><NavigationSidebar/></ProtectedRoute>}/>
                     </Routes>
                 </AuthContext>
             </BrowserRouter>
