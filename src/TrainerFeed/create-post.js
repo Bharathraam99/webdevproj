@@ -1,13 +1,15 @@
 import React, {useState} from "react";
-import {useDispatch} from "react-redux";
-import {createPost} from "./reducers/posts-reducer";
+import {useDispatch, useSelector} from "react-redux";
+import {addPostThunk} from "../services/post-thunks";
 
 const CreatePost = () => {
     let [post, setPost] = useState('');
     const dispatch = useDispatch();
+    const user = useSelector((state) => state.auth.currentUser);
     const postClickHandler = () => {
-        const newPost = {text: post}
-        dispatch(createPost(newPost))
+        console.log("Hello" + user);
+        const newPost = {post_body: post, post_title: "", image_url: "../images/sample.jpeg"}
+        dispatch(addPostThunk(newPost))
         setPost("");
     }
 

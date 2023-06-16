@@ -9,6 +9,8 @@ import {faUser, faMinusCircle, faSignIn, faUserPlus, faEllipsisH} from '@fortawe
 import { useSelector } from "react-redux";
 
 const NavigationSidebar = () => {
+const { currentUser } = useSelector((state) => state.user);
+      console.log(currentUser)
 const { pathname } = useLocation();
 
 
@@ -24,7 +26,11 @@ const { pathname } = useLocation();
 
 
   };
+  const [displayCard, setDisplayCard] = useState(false);
 
+  const handleLinkClick = () => {
+    setDisplayCard(true);
+  };
   return (
     <div className="list-group">
 <Link to="/tuiter" className="list-group-item text-capitalize">
@@ -49,16 +55,33 @@ const { pathname } = useLocation();
         </Link>
 
       ))}
-       <Link className={`list-group-item text-capitalize ${active === "register" ? "active" : ""}`} to="/card">
-                            <FontAwesomeIcon className="pe-2" icon={faUserPlus} />
-                            <span className="d-none d-xl-inline">{"register / Sign in"}</span>
+
+      {!currentUser && <Link className={`list-group-item text-capitalize ${active === "login" ? "active" : ""}`} to="/card" onClick={handleLinkClick}>
+                            <FontAwesomeIcon className="pe-2" icon={faSignIn} />
+                            <span className="d-none d-xl-inline">{"login"}</span>
                         </Link>
+                        }
+                        {!currentUser && <Link className={`list-group-item text-capitalize ${active === "register" ? "active" : ""}`} to="/card" onClick={handleLinkClick}>
+                            <FontAwesomeIcon className="pe-2" icon={faUserPlus} />
+                            <span className="d-none d-xl-inline">{"register"}</span>
+                        </Link>
+                        }
+                        {currentUser && <Link className={`list-group-item text-capitalize ${active === "profile" ? "active" : ""}`} to="/tuiter/profile">
+                            <FontAwesomeIcon className="pe-2" icon={faUser} />
+                            <span className="d-none d-xl-inline">{"profile"}</span>
+                        </Link>
+                        }
 
                   <Link className={`list-group-item text-capitalize ${active === "more" ? "active" : ""}`} to="/tuiter/more">
                                         <FontAwesomeIcon className="pe-2" icon={faEllipsisH} />
                                         <span className="d-none d-xl-inline">{"more"}</span>
                                     </Link>
 
+{displayCard && (
+        <div className="login-outdivcard">
+          <Card setToken={() => setDisplayCard(false)} />
+        </div>
+      )}
 
     </div>
   );

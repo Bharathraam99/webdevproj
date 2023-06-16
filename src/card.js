@@ -1,35 +1,49 @@
 import React, {useState} from "react";
-import PropTypes from 'prop-types';
+//import PropTypes from 'prop-types';
 import "./login.css";
+import {loginThunk} from "./services/auth-thunks";
+import {useNavigate} from "react-router";
+import {useDispatch} from "react-redux";
 
-async function loginUser(credentials) {
-    console.log(JSON.stringify(credentials))
-    return fetch('http://206.189.181.234:8087/authenticate', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(credentials)
-    })
-        .then(data => data.json())
-}
 
-const Card = ({setToken}) => {
-
+const Card = (/*{setToken}*/) => {
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
     let [username, setUsername] = useState('');
     let [password, setPassword] = useState('');
+
+
+    async function loginUser(credentials) {
+        /*console.log(JSON.stringify(credentials))
+        return fetch('http://206.189.181.234:8087/authenticate/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(credentials)
+        })
+            .then(data => data.json())*/
+
+    }
+
     const handleSubmit = async e => {
         e.preventDefault();
         try {
+            await dispatch(loginThunk({username, password}));
+            navigate("/post");
+        } catch (e) {
+            alert(e);
+        }
+        /*try {
             const token = await loginUser({
                 username,
                 password
             });
-            setToken(token);
-            console.log(token);
+            //setToken(token);
+            //console.log(token);
         } catch (e) {
             alert("Please enter valid username and password");
-        }
+        }*/
     }
 
     return (
@@ -47,8 +61,8 @@ const Card = ({setToken}) => {
     );
 };
 
-Card.propTypes = {
+/*Card.propTypes = {
     setToken: PropTypes.func.isRequired
-}
+}*/
 
 export default Card;

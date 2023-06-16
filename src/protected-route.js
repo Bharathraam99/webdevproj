@@ -9,9 +9,7 @@ function ProtectedRoute({ children }) {
     const token=useSelector((state)=>state.user.token)
     useEffect(() => {
         const load = async () => {
-
             const { payload } = await dispatch(profileThunk(token));
-            //console.log(payload)
             if (!payload) {
                 navigate("/login");
             }

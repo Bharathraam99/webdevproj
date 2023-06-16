@@ -1,5 +1,5 @@
 import {useDispatch} from "react-redux";
-import {deletePost} from "../TrainerFeed/reducers/posts-reducer";
+import {deletePost} from "../reducers/posts-reducer";
 import PostStats from "./post-stats";
 import { BsXLg } from 'react-icons/bs';
 
@@ -20,16 +20,16 @@ return(
    <div className="col-auto">
           <img width={50}
                className="float-end rounded-circle"
-               src={require(`../images/${post.profilePic}`)} height={48} width={48}/>
+               src={require(`../images/default.jpg`)} height={48} width={48}/>
         </div>
   <div className="col-10">
     <div className="tuit-info">
-      <span className="fw-bolder">{post.username}</span>
+      <span className="fw-bolder">{post.postUserName}</span>
       <AiFillCheckCircle className="tuit-verified-icon" />
-      <span className="text-muted">{post.username} . {post.time}</span>
+      <span className="text-muted">{post.postUserName} . {post.time}</span>
     </div>
-    <div>{post.text}</div>
-    <img src={require(`../images/${post.postPic}`)} height={308} width={408} alt="Sample" />
+    <div>{post.postBody}</div>
+      <img src={require(`../images/${post.imageUrl}`)} height={308} width={408} alt="Sample" />
   </div>
      <div className="col-8">
        <div>
@@ -42,7 +42,7 @@ return(
        <div className="tuit-stats-container">
 
          <PostStats
-          key = {post._id}
+          key = {post.postId}
           post={post}
          />
        </div>
