@@ -16,11 +16,11 @@ const NewPost = () => {
     let [post, setPost] = useState('');
     const dispatch = useDispatch();
     const token = useSelector((state) => state.user.token);
-    const postClickHandler = () => {
+    const postClickHandler = async () => {
         //console.log("Hello" + JSON.stringify(token));
         const newPost = {postBody: post, postTitle: "abc", imageUrl: "samplepost.webp"}
-        dispatch(addPostThunk({newPost,token}))
-        dispatch(getPostThunk(token))
+        await dispatch(addPostThunk({newPost,token}))
+        await dispatch(getPostThunk(token))
         setPost("");
     }
 
