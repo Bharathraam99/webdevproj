@@ -39,12 +39,12 @@ const NewPost = () => {
             });
         }
 
-        console.log("Hello Image "+image);
+        console.log("Hello Image " + image);
         const newPost = {postBody: post, postTitle: "abc", imageUrl: image}
         await dispatch(addPostThunk({newPost, token}))
         await dispatch(getPostThunk(token))
         setPost("");
-        image="";
+        selectedFile(null);
     }
 
     return (
