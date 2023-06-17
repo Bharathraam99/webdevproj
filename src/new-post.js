@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import axios from "axios";
 //import {createPost} from "./TrainerFeed/reducers/posts-reducer";
 import {AiOutlinePicture} from "react-icons/ai";
 import {AiOutlineFileGif} from "react-icons/ai";
@@ -14,12 +15,28 @@ import {addPostThunk, getPostThunk} from "./services/post-thunks";
 
 const NewPost = () => {
     let [post, setPost] = useState('');
+    let [selectedFile, setSelectedFile] = useState(null);
+
     const dispatch = useDispatch();
     const token = useSelector((state) => state.user.token);
+
+    const fileSelectedHandler = (event) => {
+        setSelectedFile(event.target.files[0])
+    }
+
     const postClickHandler = async () => {
-        //console.log("Hello" + JSON.stringify(token));
-        const newPost = {postBody: post, postTitle: "abc", imageUrl: "samplepost.webp"}
-        await dispatch(addPostThunk({newPost,token}))
+        const fd = new FormData();
+        fd.append('image', selectedFile, selectedFile.name);
+        let image = "";
+
+        if (selectedFile != null) {
+            await axios.post("https://api.imgbb.com/1/upload?key=057c9a9ac1bb914d95dfe4a1d47f50d5", fd).then(res => {
+                image = res.data.data.display_url;
+            });
+        }
+
+        const newPost = {postBody: post, postTitle: "abc", imageUrl: image}
+        await dispatch(addPostThunk({newPost, token}))
         await dispatch(getPostThunk(token))
         setPost("");
     }
@@ -39,10 +56,11 @@ const NewPost = () => {
        </textarea>
 
                 <div>
-                <button className="rounded-pill btn btn-primary mt-2 ps-3 pe-3 fw-bold">
+                    <button className="rounded-pill btn btn-primary mt-2 ps-3 pe-3 fw-bold">
 
-                                                           Upload
-                                                        </button>
+                        Upload
+                    </button>
+                    <input type="file" onChange={fileSelectedHandler}/>
                     <button className="rounded-pill btn btn-primary  float-end mt-2 ps-3 pe-3 fw-bold"
                             onClick={postClickHandler}>
                         Post
