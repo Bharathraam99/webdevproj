@@ -66,7 +66,7 @@ const { pathname } = useLocation();
                             <span className="d-none d-xl-inline">{"register"}</span>
                         </Link>
                         }
-                        {currentUser && <Link className={`list-group-item text-capitalize ${active === "profile" ? "active" : ""}`} to="/tuiter/profile">
+                        {currentUser && <Link className={`list-group-item text-capitalize ${active === "profile" ? "active" : ""}`} to="/profile">
                             <FontAwesomeIcon className="pe-2" icon={faUser} />
                             <span className="d-none d-xl-inline">{"profile"}</span>
                         </Link>
