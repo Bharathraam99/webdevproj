@@ -1,0 +1,20 @@
+[
+  {
+    "searchId": 1,
+    "searchBody": "Hello! this is the first post",
+    "searchTitle": "Post title",
+    "imageUrl": "default.jpg",
+    "searchUserName": "saran",
+    "upvoteCount": 1,
+    "upvoteByCurrentUser": true
+  },
+  {
+    "searchId": 2,
+    "searchBody": "Hello! this is the second post from same user",
+    "searchTitle": "Post title",
+    "imageUrl": "default.jpg",
+    "searchUserName": "admin",
+    "upvoteCount": 0,
+    "upvoteByCurrentUser": false
+  }
+]

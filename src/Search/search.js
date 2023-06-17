@@ -1,13 +1,12 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
-import Feed from "./feed";
+import Feed from "../Feed/feed";
 import NavigationSidebar from "../nav/index.js";
+import SearchList from "./search-list.js";
 function Search() {
   const location = useLocation();
   const searchQuery = new URLSearchParams(location.search).get("query");
 
-  // Perform search logic or API call with searchQuery value
-  // ...
 
   return (
     <div style={{ backgroundColor: "#f2f2f2" }}>
@@ -21,7 +20,7 @@ function Search() {
                          <div className="col-1">
                                      </div>
         <div className="col-6 wd-post">
-
+<SearchList/>
                 </div>
         </div>
         </div>

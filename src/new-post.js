@@ -39,10 +39,15 @@ const NewPost = () => {
        </textarea>
 
                 <div>
+                <button className="rounded-pill btn btn-primary mt-2 ps-3 pe-3 fw-bold">
+
+                                                           Upload
+                                                        </button>
                     <button className="rounded-pill btn btn-primary  float-end mt-2 ps-3 pe-3 fw-bold"
                             onClick={postClickHandler}>
                         Post
                     </button>
+
                     <div className="text-primary fs-2">
 
                     </div>

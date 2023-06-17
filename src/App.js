@@ -14,15 +14,17 @@ import NavigationSidebar from "./nav/index";
 import postsReducer from "./reducers/posts-reducer.js"
 import authReducer from "./reducers/auth-reducer.js";
 import userReducer from "./reducers/userSlice";
+import searchReducer from "./reducers/search-reducer.js";
 import AuthContext from "./auth-context";
 import ProtectedRoute from "./protected-route";
 import Post from "./Feed/post";
-import Search from "./Feed/search";
+import Search from "./Search/search";
 const store = configureStore({
     reducer: {
         posts: postsReducer,
         user2: userReducer,
-        user: authReducer
+        user: authReducer,
+        search: searchReducer
         // Add other reducers here if needed
     },
 });
