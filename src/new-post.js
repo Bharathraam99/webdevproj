@@ -44,7 +44,7 @@ const NewPost = () => {
         await dispatch(addPostThunk({newPost, token}))
         await dispatch(getPostThunk(token))
         setPost("");
-        selectedFile(null);
+        setSelectedFile(null);
     }
 
     return (
