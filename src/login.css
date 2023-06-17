@@ -12,20 +12,31 @@
   box-shadow: 11px 11px 12px 12px gray;
 }
 
-input {
+input,
+select,
+button {
   border: none;
   width: 50%;
   height: 8%;
   background-color: rgb(225, 224, 224);
   border-radius: 20px;
-
 }
 
-.cardbuttons
-{
+select {
+  color: gray;
+  text-align-last: center;
+  -ms-text-align-last: center; /* For IE 11 */
+}
+
+.profilepic {
+  color: gray;
+}
+
+.cardbuttons {
   display: flex;
 }
-input:hover{
+
+input:hover {
   outline: none;
   background-color: lightgray;
 }
@@ -33,7 +44,8 @@ input:hover{
 input[placeholder] {
   text-align: center;
 }
-.loginbutton{
+
+.loginbutton {
   border: none;
   width: 150px;
   height: 50px;
