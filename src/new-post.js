@@ -19,6 +19,7 @@ const NewPost = () => {
     let [selectedFileName, setSelectedFileName] = useState("");
     const dispatch = useDispatch();
     const token = useSelector((state) => state.user.token);
+    const {currentUser} = useSelector((state) => state.user)
 
     const upload = () => {
         document.getElementById("selectImage").click()
@@ -54,7 +55,7 @@ const NewPost = () => {
         <div className="row">
             <div className="col-auto">
 
-                <img src="/images/default.jpg" width={60}/>
+                <img src={`${currentUser.fitUser.profilePicture}`} width={60} className={"rounded-circle"}/>
             </div>
             <div className="col-10">
        <textarea value={post} placeholder="Write a new post"
