@@ -29,11 +29,11 @@ const NewPost = () => {
     }
 
     const postClickHandler = async () => {
-        const fd = new FormData();
-        fd.append('image', selectedFile, selectedFile.name);
         let image = "";
 
         if (selectedFile != null) {
+            const fd = new FormData();
+            fd.append('image', selectedFile, selectedFile.name);
             await axios.post("https://api.imgbb.com/1/upload?key=057c9a9ac1bb914d95dfe4a1d47f50d5", fd).then(res => {
                 image = res.data.data.display_url;
             });
