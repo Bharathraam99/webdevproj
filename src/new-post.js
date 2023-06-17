@@ -46,6 +46,7 @@ let [selectedFileName, setSelectedFileName] = useState("");
         await dispatch(addPostThunk({newPost, token}))
         await dispatch(getPostThunk(token))
         setPost("");
+         setSelectedFileName("");
         setSelectedFile(null);
     }
 
