@@ -1,0 +1,58 @@
+.tuit-stats {
+  display: flex;
+  align-items: center;
+
+
+}
+.tuit-topic{
+font-weight : bold;}
+
+.tuit-stat {
+
+  display: flex;
+  align-items: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+   max-width: 100%;
+
+
+}
+@media (min-width: 300px) {
+  .tuit-stat {
+    padding-right: 10px;
+  }
+}
+
+@media (min-width: 980px) {
+  .tuit-stat {
+    padding-left: 70px;
+  }
+}
+
+.tuit-stat-icon {
+  margin-right: 10px;
+
+}
+.liked {
+  color: red;
+}
+
+.tuit-verified-icon {
+  color: #4267B2;
+  margin-left : 5px;
+  margin-right : 5px;
+}
+.delete-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.message-button{
+border-radius : 40px;}
+
+.handle{
+margin-left:7px;
+color : dark-grey;}
+
+
+

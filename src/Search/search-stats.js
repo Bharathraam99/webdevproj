@@ -20,19 +20,17 @@ const SearchStats = ({search}) => {
     return (
         <div className="tuit-stats">
         <div className="tuit-stat">
-                        Posts
+         <span className="fw-bolder tuit-stat-count">{search.posts}</span>
                     </div>
+                    posts
             <div className="tuit-stat">
-                Followers
-                {/*<span className="tuit-stat-count">{post.retuits}</span>*/}
+                            <span className="fw-bolder tuit-stat-count">{search.followers}</span>
             </div>
-
+followers
             <div className="tuit-stat">
-                Following
-                {/*<span className="tuit-stat-count"> {post.dislikes}</span>*/}
+                <span className="fw-bolder tuit-stat-count"> {search.following}</span>
             </div>
-
-
+Following
         </div>
     );
 };
