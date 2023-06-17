@@ -20,6 +20,10 @@ const NewPost = () => {
     const dispatch = useDispatch();
     const token = useSelector((state) => state.user.token);
 
+    const upload = () => {
+        document.getElementById("selectImage").click()
+    }
+
     const fileSelectedHandler = (event) => {
         setSelectedFile(event.target.files[0])
     }
@@ -56,11 +60,10 @@ const NewPost = () => {
        </textarea>
 
                 <div>
-                    <button className="rounded-pill btn btn-primary mt-2 ps-3 pe-3 fw-bold">
-
-                        Upload
+                    <button onClick={upload} className="rounded-pill btn btn-primary mt-2 ps-3 pe-3 fw-bold">
+                        Upload Image
                     </button>
-                    <input type="file" onChange={fileSelectedHandler}/>
+                    <input id={"selectImage"} style={{display: 'none'}} type="file" onChange={fileSelectedHandler}/>
                     <button className="rounded-pill btn btn-primary  float-end mt-2 ps-3 pe-3 fw-bold"
                             onClick={postClickHandler}>
                         Post
