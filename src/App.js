@@ -6,6 +6,7 @@ import Routine from "./Feed/routine";
 import Profile from "./Feed/profile";
 import Users from "./Feed/users";
 import {BrowserRouter} from "react-router-dom";
+import Details from "./Details/details";
 import {Routes, Route, Navigate} from "react-router"
 //import PostList from "./TrainerFeed";
 import {configureStore} from "@reduxjs/toolkit";
@@ -70,6 +71,7 @@ const App = () => {
                                                                                     <ProtectedRoute><Profile/></ProtectedRoute>}/>
                             <Route path="/nav" element={
                             <ProtectedRoute><NavigationSidebar/></ProtectedRoute>}/>
+                            <Route path="/details/:username" element={<ProtectedRoute><Details/></ProtectedRoute>}/>
                     </Routes>
                 </AuthContext>
             </BrowserRouter>

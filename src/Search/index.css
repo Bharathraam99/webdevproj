@@ -54,5 +54,16 @@ border-radius : 40px;}
 margin-left:7px;
 color : dark-grey;}
 
+.username-link {
+  color:  #0645AD;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.username-link:hover {
+  color: darkblue;
+}
+
+
 
 
