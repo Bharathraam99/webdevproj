@@ -16,7 +16,7 @@ import {addPostThunk, getPostThunk} from "./services/post-thunks";
 const NewPost = () => {
     let [post, setPost] = useState('');
     let [selectedFile, setSelectedFile] = useState(null);
-let [selectedFileName, setSelectedFileName] = useState("");
+    let [selectedFileName, setSelectedFileName] = useState("");
     const dispatch = useDispatch();
     const token = useSelector((state) => state.user.token);
 
@@ -41,12 +41,11 @@ let [selectedFileName, setSelectedFileName] = useState("");
             });
         }
 
-        console.log("Hello Image " + image);
         const newPost = {postBody: post, postTitle: "abc", imageUrl: image}
         await dispatch(addPostThunk({newPost, token}))
         await dispatch(getPostThunk(token))
         setPost("");
-         setSelectedFileName("");
+        setSelectedFileName("");
         setSelectedFile(null);
     }
 
@@ -69,8 +68,9 @@ let [selectedFileName, setSelectedFileName] = useState("");
                         Upload Image
                     </button>
                     &nbsp;  &nbsp;
-                     <span>{selectedFileName}</span>
-                    <input id={"selectImage"} style={{display: 'none'}} type="file" onChange={fileSelectedHandler}/>
+                    <span>{selectedFileName}</span>
+                    <input id={"selectImage"} style={{display: 'none'}} accept="image/*" type="file"
+                           onChange={fileSelectedHandler}/>
                     <button className="rounded-pill btn btn-primary  float-end mt-2 ps-3 pe-3 fw-bold"
                             onClick={postClickHandler}>
                         Post

@@ -51,20 +51,16 @@ export const profile = async (token) => {
 };
 
 
-/*export const register = async ({ username, password }) => {
+export const register = async (user) => {
 
-    const response = await api.post(`${USERS_URL}/register`, { username, password });
+    const response = await api.post(`${USERS_URL}register`, user);
 
-    const user = response.data;
-
-    return user;
+    return response.data;
 
 };
 
 
-
-
-export const logout = async () => {
+/*export const logout = async () => {
 
     const response = await api.post(`${USERS_URL}/logout`);
 
@@ -73,14 +69,13 @@ export const logout = async () => {
 };
 
 
-
-
 export const updateUser = async (user) => {
 
     const response = await api.put(`${USERS_URL}/${user._id}`, user);
 
     return response.data;
 
-};*/
+};
+*/
 
 

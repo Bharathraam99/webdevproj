@@ -17,15 +17,15 @@ export const profileThunk = createAsyncThunk(
         return response.data;
     });
 
-/*export const registerThunk = createAsyncThunk(
+export const registerThunk = createAsyncThunk(
     "user/register", async (credentials) => {
         const user = await authService.register(credentials);
         return user;
     }
-);
+)
 
 
-export const logoutThunk = createAsyncThunk(
+/*export const logoutThunk = createAsyncThunk(
     "auth/logout", async () => {
         return await authService.logout();
     });

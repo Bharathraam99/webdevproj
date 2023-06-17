@@ -57,7 +57,7 @@ const App = () => {
               path={"/signup"}
               element={
                 <div className="login-outdivcard">
-                  <Signup></Signup>
+                  <Signup/>
                 </div>
               }
             />
