@@ -29,9 +29,9 @@ const Profile = () => {
                             <br/>
                             Lastname: {currentUser.user.lastName}
                             <br/>
-                            Height: {currentUser.fitUser.height}
+                            Height: {currentUser.fitUser.height} cm
                             <br/>
-                            Weight: {currentUser.fitUser.weight}
+                            Weight: {currentUser.fitUser.weight} lb
                         </div>}
                         {currentUser===null && <div>PLEASE LOG IN TO SEE PROFILE</div>}
 
