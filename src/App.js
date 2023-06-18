@@ -136,6 +136,12 @@ const App = () => {
                             }
                         />
 
+                        <Route
+                            path={"/newPost"}
+                            element={<ProtectedRoute>
+                                <NewPost/>
+                            </ProtectedRoute>}/>
+
                     </Routes>
                 </AuthContext>
             </BrowserRouter>

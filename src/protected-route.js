@@ -1,15 +1,17 @@
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router";
-import { profileThunk } from "./services/auth-thunks";
-function ProtectedRoute({ children }) {
+import React, {useEffect, useState} from "react";
+import {useDispatch, useSelector} from "react-redux";
+import {useNavigate} from "react-router";
+import {profileThunk} from "./services/auth-thunks";
+
+function ProtectedRoute({children}) {
     const [loading, setLoading] = useState(true);
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    const token=useSelector((state)=>state.user.token)
+    const token = useSelector((state) => state.user.token)
     useEffect(() => {
         const load = async () => {
-            const { payload } = await dispatch(profileThunk(token));
+            const {payload} = await dispatch(profileThunk(token));
+            console.log("PROTECTED ROUTE: " + payload)
             if (!payload) {
                 navigate("/login");
             }
@@ -17,8 +19,9 @@ function ProtectedRoute({ children }) {
         };
         load()
     }, []);
-    return(<div className={`${loading ? "d-none" : ""}`}>
+    return (<div className={`${loading ? "d-none" : ""}`}>
         {children}
     </div>);
 }
+
 export default ProtectedRoute;

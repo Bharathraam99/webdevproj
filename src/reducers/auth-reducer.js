@@ -4,7 +4,7 @@ import {loginThunk, profileThunk, registerThunk} from "../services/auth-thunks";
 
 const initialState = {
     currentUser: null,
-    token:null
+    token: null
 }
 
 const authSlice = createSlice({
@@ -15,10 +15,11 @@ const authSlice = createSlice({
         [loginThunk.fulfilled]: (state, {payload}) => {
             state.token = payload.jwtToken;
         },
-        [profileThunk.fulfilled]: (state, { payload }) => {
+        [profileThunk.fulfilled]: (state, {payload}) => {
             state.currentUser = payload;
+            console.log("PROFILE THUNK: " + JSON.stringify(state.currentUser))
         },
-        [registerThunk.rejected]:(state, { payload })=>{
+        [registerThunk.rejected]: (state, {payload}) => {
             throw new Error("Username Already exists");
         }
         /*[logoutThunk.fulfilled]: (state) => {
