@@ -15,7 +15,7 @@ function ProtectedRoute({ children }) {
             }
             setLoading(false);
         };
-        load();
+        load()
     }, []);
     return(<div className={`${loading ? "d-none" : ""}`}>
         {children}

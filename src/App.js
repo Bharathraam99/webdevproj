@@ -1,16 +1,16 @@
 import "./App.css";
-import React, { useState } from "react";
+import React, {useState} from "react";
 import Card from "./card";
 import Home from "./home";
 import Routine from "./Feed/routine";
 import Profile from "./Feed/profile";
 import Users from "./Feed/users";
-import { BrowserRouter } from "react-router-dom";
+import {BrowserRouter} from "react-router-dom";
 import Details from "./Details/details";
-import { Routes, Route, Navigate } from "react-router";
+import {Routes, Route, Navigate} from "react-router";
 //import PostList from "./TrainerFeed";
-import { configureStore } from "@reduxjs/toolkit";
-import { Provider } from "react-redux";
+import {configureStore} from "@reduxjs/toolkit";
+import {Provider} from "react-redux";
 import NavigationSidebar from "./nav/index";
 import postsReducer from "./reducers/posts-reducer.js";
 import authReducer from "./reducers/auth-reducer.js";
@@ -21,123 +21,126 @@ import ProtectedRoute from "./protected-route";
 import Post from "./Feed/post";
 import Search from "./Search/search";
 import Signup from "./credential/signup.js";
+import NewPost from "./new-post";
+
 const store = configureStore({
-  reducer: {
-    posts: postsReducer,
-    user2: userReducer,
-    user: authReducer,
-    search: searchReducer,
-    // Add other reducers here if needed
-  },
+    reducer: {
+        posts: postsReducer,
+        user2: userReducer,
+        user: authReducer,
+        search: searchReducer,
+        // Add other reducers here if needed
+    },
 });
 
 const App = () => {
-  /*const [token, setToken] = useState();
-    if (!token) {
-        return (
-            <div className="login-outdivcard">
-                <Card setToken={setToken}/>
-            </div>
-        )
-    }*/
-  return (
-    <Provider store={store}>
-      <BrowserRouter>
-        <AuthContext>
-          <Routes>
-            <Route
-              path={"/login"}
-              element={
-                <div className="login-outdivcard">
-                  <Card /*setToken={setToken}*/ />
-                </div>
-              }
-            />
-            <Route
-              path={"/signup"}
-              element={
-                <div className="login-outdivcard">
-                  <Signup/>
-                </div>
-              }
-            />
-            <Route
-              path="/"
-              element={
-                <ProtectedRoute>
-                  <Home />
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="/home/*"
-              element={
-                <ProtectedRoute>
-                  <Home />
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="/post"
-              element={
-                <ProtectedRoute>
-                  <Post />
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="/routine"
-              element={
-                <ProtectedRoute>
-                  <Routine />
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="/search"
-              element={
-                <ProtectedRoute>
-                  <Search />
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="/users"
-              element={
-                <ProtectedRoute>
-                  <Users />
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="/profile"
-              element={
-                <ProtectedRoute>
-                  <Profile />
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="/nav"
-              element={
-                <ProtectedRoute>
-                  <NavigationSidebar />
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="/details/:username"
-              element={
-                <ProtectedRoute>
-                  <Details />
-                </ProtectedRoute>
-              }
-            />
-          </Routes>
-        </AuthContext>
-      </BrowserRouter>
-    </Provider>
-  );
+    /*const [token, setToken] = useState();
+      if (!token) {
+          return (
+              <div className="login-outdivcard">
+                  <Card setToken={setToken}/>
+              </div>
+          )
+      }*/
+    return (
+        <Provider store={store}>
+            <BrowserRouter>
+                <AuthContext>
+                    <Routes>
+                        <Route
+                            path={"/login"}
+                            element={
+                                <div className="login-outdivcard">
+                                    <Card /*setToken={setToken}*/ />
+                                </div>
+                            }
+                        />
+                        <Route
+                            path={"/signup"}
+                            element={
+                                <div className="login-outdivcard">
+                                    <Signup/>
+                                </div>
+                            }
+                        />
+                        <Route
+                            path="/"
+                            element={
+                                <ProtectedRoute>
+                                    <Home/>
+                                </ProtectedRoute>
+                            }
+                        />
+                        <Route
+                            path="/home/*"
+                            element={
+                                <ProtectedRoute>
+                                    <Home/>
+                                </ProtectedRoute>
+                            }
+                        />
+                        <Route
+                            path="/post"
+                            element={
+                                <ProtectedRoute>
+                                    <Post/>
+                                </ProtectedRoute>
+                            }
+                        />
+                        <Route
+                            path="/routine"
+                            element={
+                                <ProtectedRoute>
+                                    <Routine/>
+                                </ProtectedRoute>
+                            }
+                        />
+                        <Route
+                            path="/search"
+                            element={
+                                <ProtectedRoute>
+                                    <Search/>
+                                </ProtectedRoute>
+                            }
+                        />
+                        <Route
+                            path="/users"
+                            element={
+                                <ProtectedRoute>
+                                    <Users/>
+                                </ProtectedRoute>
+                            }
+                        />
+                        <Route
+                            path="/profile"
+                            element={
+                                <ProtectedRoute>
+                                    <Profile/>
+                                </ProtectedRoute>
+                            }
+                        />
+                        <Route
+                            path="/nav"
+                            element={
+                                <ProtectedRoute>
+                                    <NavigationSidebar/>
+                                </ProtectedRoute>
+                            }
+                        />
+                        <Route
+                            path="/details/:username"
+                            element={
+                                <ProtectedRoute>
+                                    <Details/>
+                                </ProtectedRoute>
+                            }
+                        />
+
+                    </Routes>
+                </AuthContext>
+            </BrowserRouter>
+        </Provider>
+    );
 };
 
 export default App;

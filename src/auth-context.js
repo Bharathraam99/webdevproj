@@ -9,7 +9,6 @@ function AuthContext ({ children }) {
     const token=useSelector((state)=>state.user.token)
     useEffect(() => {
         const load = async () => {
-            console.log(token);
             await dispatch(profileThunk(token));
             setLoading(false);
         };
