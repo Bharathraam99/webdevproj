@@ -3,14 +3,13 @@ import "./login.css";
 import {loginThunk, profileThunk} from "./services/auth-thunks";
 import {useNavigate} from "react-router";
 import {Link} from "react-router-dom";
-import {useDispatch, useSelector} from "react-redux";
+import {useDispatch} from "react-redux";
 
 const Card = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
     let [username, setUsername] = useState("");
     let [password, setPassword] = useState("");
-    const {token} = useSelector(state => state.user)
 
     const handleSubmit = async () => {
         try {

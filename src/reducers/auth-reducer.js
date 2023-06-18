@@ -15,6 +15,9 @@ const authSlice = createSlice({
         [loginThunk.fulfilled]: (state, {payload}) => {
             state.token = payload.jwtToken;
         },
+        [loginThunk.rejected]: (state, {payload}) => {
+            throw new Error("Wrong Credentials Enter. Please try again")
+        },
         [profileThunk.fulfilled]: (state, {payload}) => {
             state.currentUser = payload;
             console.log("PROFILE THUNK: " + JSON.stringify(state.currentUser))

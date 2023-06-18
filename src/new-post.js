@@ -1,9 +1,8 @@
-import React, {useEffect, useState} from "react";
+import React, {useState} from "react";
 import axios from "axios";
 
 import {useDispatch, useSelector} from "react-redux";
 import {addPostThunk, getPostThunk} from "./services/post-thunks";
-import {profileThunk} from "./services/auth-thunks";
 
 const NewPost = () => {
     let [post, setPost] = useState('');
