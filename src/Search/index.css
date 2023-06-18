@@ -48,7 +48,8 @@ font-weight : bold;}
   right: 0;
 }
 .message-button{
-border-radius : 40px;}
+border-radius : 40px;
+width:100px;}
 
 .handle{
 margin-left:7px;

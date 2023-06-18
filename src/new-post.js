@@ -57,20 +57,21 @@ const NewPost = () => {
        </textarea>
 
                     <div>
-                        <button onClick={upload} className="rounded-pill btn btn-primary mt-2 ps-3 pe-3 fw-bold">
+                        <button onClick={upload} className="rounded-pill btn btn-primary mt-2 ps-3 pe-3 fw-bold"
+                        style={{ width: 'fit-content', padding: '8px 12px', fontWeight: 'bold' }}>
+
                             Upload Image
                         </button>
                         &nbsp;  &nbsp;
                         <span>{selectedFileName}</span>
                         <input id={"selectImage"} style={{display: 'none'}} accept="image/*" type="file"
                                onChange={fileSelectedHandler}/>
-                        <button className="rounded-pill btn btn-primary  float-end mt-2 ps-3 pe-3 fw-bold"
+                        <button className="rounded-pill btn btn-primary float-end mt-2 ps-3 pe-3 fw-bold"
+                        style={{ width: 'fit-content', padding: '8px 12px', fontWeight: 'bold' }}
                                 onClick={postClickHandler}>
                             Post
                         </button>
-                        <div className="text-primary fs-2">
 
-                        </div>
                     </div>
                 </div>
                 <div className="col-12">

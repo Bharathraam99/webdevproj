@@ -1,0 +1,80 @@
+.profile-container {
+  background-color: #f2f2f2;
+}
+
+.profile-details {
+  margin-top: 20px;
+
+}
+
+.profile-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.profile-picture {
+  border: 2px solid #ccc;
+}
+
+.username {
+  margin-left: 20px;
+  font-weight: bold;
+  font-size : 25px;
+
+}
+.edit-profile-button {
+  margin-left: 200px;
+
+}
+.edit-profile-button button{
+height:40px;
+  width: 120px;
+
+}
+
+.profile-field {
+  margin-bottom: 10px;
+}
+
+.profile-label {
+  font-weight: bold;
+}
+
+.profile-message {
+  margin-top: 20px;
+  font-weight: bold;
+  color: red;
+}
+
+
+
+.profile-field {
+  display: flex;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.profile-label {
+  width: 130px;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.profile-input {
+  flex: 0;
+  border: none;
+ margin-left: 205px;
+  text-align: center;
+
+ width: 200px;
+ height:30px;
+  padding: 5px;
+  font-size: 20px;
+}
+.profile-card-header{
+ margin-bottom : 35px;
+ }
+ .edit-profile-button{
+ width: 200px;
+ }
