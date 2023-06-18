@@ -1,6 +1,6 @@
 import {createSlice} from "@reduxjs/toolkit";
 //import {logoutThunk, profileThunk, registerThunk, updateUserThunk} from "../services/auth-thunks";
-import {loginThunk, profileThunk} from "../services/auth-thunks";
+import {loginThunk, profileThunk, registerThunk} from "../services/auth-thunks";
 
 const initialState = {
     currentUser: null,
@@ -18,6 +18,9 @@ const authSlice = createSlice({
         [profileThunk.fulfilled]: (state, { payload }) => {
             state.currentUser = payload;
         },
+        [registerThunk.rejected]:(state, { payload })=>{
+            throw new Error("Username Already exists");
+        }
         /*[logoutThunk.fulfilled]: (state) => {
             state.currentUser = null;
         },

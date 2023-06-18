@@ -63,9 +63,14 @@ const Signup = () => {
                 "weight": weight,
                 "profilePicture": image
             }
-            await dispatch(registerThunk(user));
-            alert("User Registered Successfully");
-            navigate("/login")
+            try {
+                await dispatch(registerThunk(user));
+                alert("User Registered Successfully");
+                navigate("/login")
+            } catch (e) {
+                alert(e);
+            }
+
         }
 
     };

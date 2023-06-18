@@ -20,6 +20,9 @@ export const profileThunk = createAsyncThunk(
 export const registerThunk = createAsyncThunk(
     "user/register", async (credentials) => {
         const user = await authService.register(credentials);
+        if(user.code===400){
+            throw new Error("Username Already exists");
+        }
         return user;
     }
 )
