@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Feed from "../Feed/feed";
 import NavigationSidebar from "../nav/index.js";
 import "./users.css";
+import { useSelector } from "react-redux";
+
 import { useNavigate } from "react-router-dom";
 const Users = () => {
   const [activeTab, setActiveTab] = useState("followers");
@@ -9,6 +11,7 @@ const Users = () => {
   const handleTabChange = (tab) => {
     setActiveTab(tab);
   };
+  const { currentUser } = useSelector((state) => state.user);
 
   const followers = [
     { id: 1, name: "John Doe", picture: "../images/john.jpg" },
@@ -70,85 +73,98 @@ const Users = () => {
           <NavigationSidebar />
         </div>
         <div className="col-9">
-          <div className="nav-tabs-container">
-            <ul className="nav nav-tabs">
-              <li
-                className={`nav-item ${
-                  activeTab === "followers" ? "active" : ""
-                }`}
-              >
-                <button
-                  className="nav-link"
-                  onClick={() => handleTabChange("followers")}
-                >
-                  <span className="tab-title">Followers</span>
-                  {activeTab === "followers" && (
-                    <span className="tab-indicator"></span>
-                  )}
-                </button>
-              </li>
-              <li
-                className={`nav-item ${
-                  activeTab === "following" ? "active" : ""
-                }`}
-              >
-                <button
-                  className="nav-link"
-                  onClick={() => handleTabChange("following")}
-                >
-                  <span className="tab-title">Following</span>
-                  {activeTab === "following" && (
-                    <span className="tab-indicator"></span>
-                  )}
-                </button>
-              </li>
-              <li className={`nav-item ${activeTab === "all" ? "active" : ""}`}>
-                <button
-                  className="nav-link"
-                  onClick={() => handleTabChange("all")}
-                >
-                  <span className="tab-title">Find!</span>
-                  {activeTab === "all" && (
-                    <span className="tab-indicator"></span>
-                  )}
-                </button>
-              </li>
-            </ul>
-          </div>
-          <div className="content-container">
-            <h3>
-              {activeTab === "followers"
-                ? "Followers"
-                : activeTab === "following"
-                ? "Following"
-                : "Find Users"}
-            </h3>
-            <hr />
-            <div className="tab-content">
-              <div
-                className={`tab-pane ${
-                  activeTab === "followers" ? "active" : ""
-                }`}
-                id="followers"
-              >
-                {renderUsersList(followers)}
-              </div>
-              <div
-                className={`tab-pane ${
-                  activeTab === "following" ? "active" : ""
-                }`}
-                id="following"
-              >
-                {renderUsersList(following)}
-              </div>
-              <div
-                className={`tab-pane ${activeTab === "all" ? "active" : ""}`}
-                id="all"
-              >
-                {renderUsersList(allUsers)}
+          {currentUser === null && (
+            <div className="profile-message">PLEASE LOG IN TO SEE USERS</div>
+          )}
+          {currentUser && (
+            <div>
+              <div className="nav-tabs-container">
+                <ul className="nav nav-tabs">
+                  <li
+                    className={`nav-item ${
+                      activeTab === "followers" ? "active" : ""
+                    }`}
+                  >
+                    <button
+                      className="nav-link"
+                      onClick={() => handleTabChange("followers")}
+                    >
+                      <span className="tab-title">Followers</span>
+                      {activeTab === "followers" && (
+                        <span className="tab-indicator"></span>
+                      )}
+                    </button>
+                  </li>
+                  <li
+                    className={`nav-item ${
+                      activeTab === "following" ? "active" : ""
+                    }`}
+                  >
+                    <button
+                      className="nav-link"
+                      onClick={() => handleTabChange("following")}
+                    >
+                      <span className="tab-title">Following</span>
+                      {activeTab === "following" && (
+                        <span className="tab-indicator"></span>
+                      )}
+                    </button>
+                  </li>
+                  <li
+                    className={`nav-item ${
+                      activeTab === "all" ? "active" : ""
+                    }`}
+                  >
+                    <button
+                      className="nav-link"
+                      onClick={() => handleTabChange("all")}
+                    >
+                      <span className="tab-title">Find!</span>
+                      {activeTab === "all" && (
+                        <span className="tab-indicator"></span>
+                      )}
+                    </button>
+                  </li>
+                </ul>
+              </div>{" "}
+              <div className="content-container">
+                <h3>
+                  {activeTab === "followers"
+                    ? "Followers"
+                    : activeTab === "following"
+                    ? "Following"
+                    : "Find Users"}
+                </h3>
+                <hr />
+                <div className="tab-content">
+                  <div
+                    className={`tab-pane ${
+                      activeTab === "followers" ? "active" : ""
+                    }`}
+                    id="followers"
+                  >
+                    {renderUsersList(followers)}
+                  </div>
+                  <div
+                    className={`tab-pane ${
+                      activeTab === "following" ? "active" : ""
+                    }`}
+                    id="following"
+                  >
+                    {renderUsersList(following)}
+                  </div>
+                  <div
+                    className={`tab-pane ${
+                      activeTab === "all" ? "active" : ""
+                    }`}
+                    id="all"
+                  >
+                    {renderUsersList(allUsers)}
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
+          )}
         </div>
       </div>
     </div>

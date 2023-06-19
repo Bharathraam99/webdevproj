@@ -22,6 +22,8 @@ import Post from "./Feed/post";
 import Search from "./Search/search";
 import Signup from "./credential/signup.js";
 import NewPost from "./new-post";
+import Feed from "./Feed/feed";
+import LandingPage from "./landingpage/landing";
 
 const store = configureStore({
   reducer: {
@@ -50,7 +52,7 @@ const App = () => {
             <Route
               path={"/login"}
               element={
-                <div className="login-outdivcard">
+                <div>
                   <Card /*setToken={setToken}*/ />
                 </div>
               }
@@ -58,7 +60,7 @@ const App = () => {
             <Route
               path={"/signup"}
               element={
-                <div className="login-outdivcard">
+                <div>
                   <Signup />
                 </div>
               }
@@ -67,7 +69,8 @@ const App = () => {
               path="/"
               element={
                 <ProtectedRoute>
-                  <Home />
+                  <LandingPage></LandingPage>
+                  {/* <Feed /> */}
                 </ProtectedRoute>
               }
             />

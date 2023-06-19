@@ -3,13 +3,13 @@
   flex-direction: column;
   display: flex;
   align-items: center;
-  background-color: rgb(230, 198, 170);
+  background-color: #8ac7db;
   border-radius: 60px;
   padding: 10px;
   height: 30em;
   width: 35em;
-  margin-top: -70px;
-  box-shadow: 11px 11px 12px 12px gray;
+  margin-top: 10px;
+  margin-left: 90px;
 }
 
 input,
