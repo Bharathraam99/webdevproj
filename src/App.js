@@ -2,7 +2,7 @@ import "./App.css";
 import React, {useState} from "react";
 import Card from "./card";
 import Home from "./home";
-import Routine from "./Feed/routine";
+import Routine from "./routine-page/routine";
 import Profile from "./Feed/profile";
 import Users from "./Feed/users";
 import {BrowserRouter} from "react-router-dom";

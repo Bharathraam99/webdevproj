@@ -1,5 +1,5 @@
 import React from "react";// Import useHistory from React Router
-import Feed from "./feed";
+import Feed from "../Feed/feed";
 import NavigationSidebar from "../nav/index.js";
 
 const Routine = () => {

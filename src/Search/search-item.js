@@ -13,6 +13,10 @@ const SearchItem = ({ search }) => {
     // Handle message button click here
     // You can dispatch an action or perform any other logic
   };
+  const handleFollowClick = () => {
+      // Handle follow button click here
+      // You can dispatch an action or perform any other logic
+    };
 
   const handleUsernameClick = () => {
     navigate(`/details/${search.searchUserName}`);
@@ -40,6 +44,13 @@ const SearchItem = ({ search }) => {
                 {search.searchUserName}
               </span>
               <span className="handle">{search.searchUserHandle}</span>
+                <button
+                              className="float-end follow-button"
+                              onClick={handleFollowClick}
+                            >
+                            Follow
+                            </button>
+
               <button
                 className="float-end message-button"
                 onClick={handleMessageClick}

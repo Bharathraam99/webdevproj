@@ -6,8 +6,11 @@ import "./index.css";
 
 const Profile = () => {
   const { currentUser } = useSelector((state) => state.user);
-const handleEditProfile = () => {
-    // Handle the edit profile functionality
+   const { search } = useSelector((state) => state.search);
+  const [editMode, setEditMode] = useState(false);
+
+  const handleEditProfile = () => {
+    setEditMode(true);
   };
 
   return (
@@ -32,47 +35,78 @@ const handleEditProfile = () => {
                       alt="Profile Picture"
                     />
                     <span className="username">@{currentUser.user.username}</span>
+ &nbsp;
+  &nbsp;
+  <span className="profile-stat">156</span>
+                                          <span > followers</span>
+                                           &nbsp; &nbsp;  &nbsp;
+                                             <span className="profile-stat">75</span>
+                                             &nbsp;
+                                          <span >following</span>
+
+                                           &nbsp;  &nbsp;  &nbsp;
+                                             <span className="profile-stat">3</span>
+                                             &nbsp;
+                                          <span>posts</span>
+                                           &nbsp; &nbsp;  &nbsp;
+
                     {currentUser && (
-                                              <span className="edit-profile-button">
-                                                <button className = "rounded-pill btn btn-primary mt-2 ps-3 pe-3 fw-bold" onClick={handleEditProfile}>Edit Profile</button>
-                                              </span>
-                                            )}
+                      <span className="edit-profile-button">
+                        {editMode ? (
+                          <button className="rounded-pill btn btn-primary mt-2 ps-3 pe-3 fw-bold">Save</button>
+                        ) : (
+                          <button className="rounded-pill btn btn-primary mt-2 ps-3 pe-3 fw-bold" onClick={handleEditProfile}>Edit Profile</button>
+                        )}
+                      </span>
+                    )}
                   </div>
                   <div className="profile-card-body">
                     <div className="profile-field">
                       <span className="profile-label">FIRST NAME:</span>{" "}
                       <input
                         type="text"
-                        className="profile-input"
+                        className={`profile-input square-input ${editMode ? "editable" : ""}`}
                         value={currentUser.user.firstName}
-                        readOnly
+                        readOnly={!editMode}
+                        onChange={(e) => {
+                          // Handle the change event
+                        }}
                       />
                     </div>
                     <div className="profile-field">
                       <span className="profile-label">LAST NAME:</span>{" "}
                       <input
                         type="text"
-                        className="profile-input"
+                        className={`profile-input square-input ${editMode ? "editable" : ""}`}
                         value={currentUser.user.lastName}
-                        readOnly
+                        readOnly={!editMode}
+                        onChange={(e) => {
+                          // Handle the change event
+                        }}
                       />
                     </div>
                     <div className="profile-field">
                       <span className="profile-label">HEIGHT:</span>{" "}
                       <input
                         type="text"
-                        className="profile-input"
+                        className={`profile-input square-input ${editMode ? "editable" : ""}`}
                         value={`${currentUser.fitUser.height} cm`}
-                        readOnly
+                        readOnly={!editMode}
+                        onChange={(e) => {
+                          // Handle the change event
+                        }}
                       />
                     </div>
                     <div className="profile-field">
                       <span className="profile-label">WEIGHT:</span>{" "}
                       <input
                         type="text"
-                        className="profile-input"
+                        className={`profile-input square-input ${editMode ? "editable" : ""}`}
                         value={`${currentUser.fitUser.weight} lb`}
-                        readOnly
+                        readOnly={!editMode}
+                        onChange={(e) => {
+                          // Handle the change event
+                        }}
                       />
                     </div>
                   </div>
@@ -84,7 +118,6 @@ const handleEditProfile = () => {
                 PLEASE LOG IN TO SEE PROFILE
               </div>
             )}
-
           </div>
         </div>
       </div>

@@ -22,7 +22,7 @@ const Card = () => {
 
     return (
         <div className="login-innerCard">
-            <h1>Strava - Share what you do !</h1>
+            <h1>Welcome to our Fitness app</h1>
             <input
                 value={username}
                 type="text"

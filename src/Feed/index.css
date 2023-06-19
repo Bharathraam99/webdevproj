@@ -24,7 +24,7 @@
 
 }
 .edit-profile-button {
-  margin-left: 200px;
+  margin-left: 60px;
 
 }
 .edit-profile-button button{
@@ -63,7 +63,9 @@ height:40px;
 
 .profile-input {
   flex: 0;
-  border: none;
+  background-color:white;
+ border: 1px solid black;
+    border-radius: 0;
  margin-left: 205px;
   text-align: center;
 
@@ -73,8 +75,11 @@ height:40px;
   font-size: 20px;
 }
 .profile-card-header{
+ width: 1000px;
  margin-bottom : 35px;
  }
  .edit-profile-button{
  width: 200px;
  }
+ .profile-stat{
+ font-weight:bold;}

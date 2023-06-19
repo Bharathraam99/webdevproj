@@ -49,6 +49,11 @@ font-weight : bold;}
 }
 .message-button{
 border-radius : 40px;
+margin-right : 15px;
+width:100px;}
+.follow-button{
+
+border-radius : 40px;
 width:100px;}
 
 .handle{
