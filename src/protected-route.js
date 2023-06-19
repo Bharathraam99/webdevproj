@@ -11,7 +11,6 @@ function ProtectedRoute({children}) {
     useEffect(() => {
         const load = async () => {
             const {payload} = await dispatch(profileThunk(token));
-            console.log("PROTECTED ROUTE: " + payload)
             if (!payload) {
                 navigate("/login");
             }
