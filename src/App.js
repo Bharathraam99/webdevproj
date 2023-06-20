@@ -17,6 +17,7 @@ import authReducer from "./reducers/auth-reducer.js";
 import userReducer from "./reducers/userSlice";
 import searchReducer from "./reducers/search-reducer.js";
 import followReducer from "./reducers/follow-reducer.js"
+import routineReducer from "./reducers/routine-reducer.js"
 import AuthContext from "./auth-context";
 import ProtectedRoute from "./protected-route";
 import Post from "./Feed/post";
@@ -33,7 +34,8 @@ const store = configureStore({
         user2: userReducer,
         user: authReducer,
         search: searchReducer,
-        follow: followReducer
+        follow: followReducer,
+        routine: routineReducer
         // Add other reducers here if needed
     },
 });

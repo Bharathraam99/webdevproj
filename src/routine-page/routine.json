@@ -1,0 +1,11 @@
+[
+  {
+    "routineId": 1,
+    "routineBody": "Hello! this is the first post",
+    "routineTitle": "Post title",
+    "imageUrl": "samplepost.webp",
+    "routineUserName": "saran",
+    "upvoteCount": 1,
+    "upvoteByCurrentUser": true
+  }
+]

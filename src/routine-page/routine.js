@@ -1,7 +1,7 @@
 import React from "react";// Import useHistory from React Router
 import Feed from "../Feed/feed";
 import NavigationSidebar from "../nav/index.js";
-
+import RoutineList from "./routine-list.js";
 const Routine = () => {
 
   return (
@@ -12,11 +12,11 @@ const Routine = () => {
         <div className="col-2 wd-nav">
                             <NavigationSidebar />
                           </div>
-                          <div className="col-1">
-                                      </div>
+        <div className="col-1">
+                          </div>
          <div className="col-6">
-
-                 </div>
+         <RoutineList/>
+                           </div>
          </div>
      </div>
  );
