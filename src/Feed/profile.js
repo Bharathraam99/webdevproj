@@ -1,9 +1,8 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import Feed from "./feed";
 import NavigationSidebar from "../nav";
 import {useDispatch, useSelector} from "react-redux";
 import "./index.css";
-import {getFollowers, getFollowing} from "../services/follow-service";
 import {getFollowersThunk, getFollowingThunk} from "../services/follow-thunks";
 import {getPostThunk} from "../services/post-thunks";
 
@@ -73,16 +72,16 @@ const Profile = () => {
                                                 {currentUser && (
                                                     <span className="edit-profile-button">
                         {editMode ? (
-                            <button className="rounded-pill btn btn-primary mt-2 ps-3 pe-3 fw-bold">
-                                Save
-                            </button>
+                          <button className="rounded-pill btn btn-primary mt-2 ps-3 pe-3 fw-bold">
+                            Save
+                          </button>
                         ) : (
-                            <button
-                                className="rounded-pill btn btn-primary mt-2 ps-3 pe-3 fw-bold"
-                                onClick={handleEditProfile}
-                            >
-                                Edit Profile
-                            </button>
+                          <button
+                            className="rounded-pill btn btn-primary mt-2 ps-3 pe-3 fw-bold"
+                            onClick={handleEditProfile}
+                          >
+                            Edit Profile
+                          </button>
                         )}
                       </span>
                                                 )}
