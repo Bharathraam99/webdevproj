@@ -3,7 +3,7 @@ import Feed from "./feed";
 import NavigationSidebar from "../nav";
 import { useSelector } from "react-redux";
 import "./index.css";
-
+import {Link} from "react-router-dom";
 const Profile = () => {
   const { currentUser } = useSelector((state) => state.user);
   const { search } = useSelector((state) => state.search);
@@ -38,17 +38,19 @@ const Profile = () => {
                       @{currentUser.user.username}
                     </span>
                     &nbsp; &nbsp;
-                    <span className="profile-stat">156</span>
-                    <span> followers</span>
-                    &nbsp; &nbsp; &nbsp;
-                    <span className="profile-stat">75</span>
-                    &nbsp;
-                    <span>following</span>
-                    &nbsp; &nbsp; &nbsp;
-                    <span className="profile-stat">3</span>
-                    &nbsp;
-                    <span>posts</span>
-                    &nbsp; &nbsp; &nbsp;
+                   <Link to="/users" className="profile-stat-link">
+                                            <span className="profile-stat">111</span>
+                                            <span> followers</span>
+                                          </Link>
+                                           &nbsp;   &nbsp;
+                                          <Link to="/users" className="profile-stat-link">
+                                            <span className="profile-stat">111</span>
+                                            <span> following</span>
+                                          </Link>
+                                           &nbsp;   &nbsp;
+                                          <span className="profile-stat">3</span>
+                                          <span> posts</span>
+
                     {currentUser && (
                       <span className="edit-profile-button">
                         {editMode ? (
