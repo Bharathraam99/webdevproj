@@ -20,15 +20,15 @@ const SearchStats = ({search}) => {
     return (
         <div className="tuit-stats">
         <div className="tuit-stat">
-         <span className="fw-bolder tuit-stat-count">{search.posts}</span>
+         <span className="fw-bolder tuit-stat-count">0</span>
                     </div>
                     posts
             <div className="tuit-stat">
-                            <span className="fw-bolder tuit-stat-count">{search.followers}</span>
+                            <span className="fw-bolder tuit-stat-count">0</span>
             </div>
 followers
             <div className="tuit-stat">
-                <span className="fw-bolder tuit-stat-count"> {search.following}</span>
+                <span className="fw-bolder tuit-stat-count">0</span>
             </div>
 Following
         </div>

@@ -30,7 +30,7 @@ const SearchItem = ({ search }) => {
             <img
               width={50}
               className="float-end rounded-circle"
-              src={require(`../images/${search.imageUrl}`)}
+              src={`${search.profilePicture}`}
               height={48}
               width={48}
             />
@@ -41,9 +41,9 @@ const SearchItem = ({ search }) => {
                 className="fw-bolder username-link"
                 onClick={handleUsernameClick}
               >
-                {search.searchUserName}
+                {search.firstName}
               </span>
-              <span className="handle">{search.searchUserHandle}</span>
+              <span className="handle">{search.lastName}</span>
                 <button
                               className="float-end follow-button"
                               onClick={handleFollowClick}
