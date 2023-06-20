@@ -12,12 +12,10 @@ const RoutineItem = ({routine}) => {
 
     return (
         <>
-            <li className="list-group-item">
+            <li className="list-group-item routinepost">
                 <div className="row">
                     <div className="col-auto">
-                        <img width={50}
-                             className="float-end rounded-circle"
-                             src={require(`../images/default.jpg`)} height={48} width={48}/>
+
                     </div>
                     <div className="col-10">
                         <div className="tuit-info">

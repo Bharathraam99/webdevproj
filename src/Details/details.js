@@ -3,6 +3,7 @@ import Feed from "./../Feed/feed";
 import NavigationSidebar from "../nav/index.js";
 import {useParams} from "react-router-dom";
 import axios from "axios";
+import "./index.css";
 import {useDispatch, useSelector} from "react-redux";
 import {useNavigate} from "react-router";
 import {getFollowers} from "../services/follow-service";
@@ -61,30 +62,63 @@ const Details = () => {
                 </div>
                 <div className="col-6">
 
-                    <h2>@{detail.user.username}</h2>
 
+<div className="imageid">
                     <img
                         className="rounded-circle profile-picture"
                         height={108}
                         width={108}
                         src={`${detail.fitUser.profilePicture}`}
                         alt="Profile Picture"/>
-
+                        <span className="username">@{detail.user.username}</span>
+</div>
                     <div className="card-body">
                         <div className="user-info">
-                            <h5 className="card-title">{detail.user.firstName} {detail.user.lastName}</h5>
-                            Height: {detail.fitUser.height}
-                            <br/>
-                            Weight: {detail.fitUser.weight}
-                            <br/>
+                                                                            <div className="profile-field">
+                                                                                <span className="profile-label">FIRST NAME:</span>{" "}
+                                                                                <input
+                                                                                    type="text"
+                                                                                    className={`profile-input square-input`}
+                                                                                    value={`${detail.user.firstName}`}
 
-                            {!detail.isFollowing && <button onClick={() => {
+                                                                                />
+                                                                            </div>
+ <div className="profile-field">
+                                                                                <span className="profile-label">LAST NAME:</span>{" "}
+                                                                                <input
+                                                                                    type="text"
+                                                                                    className={`profile-input square-input`}
+                                                                                    value={`${detail.user.lastName}`}
+
+                                                                                />
+                                                                            </div>
+                                                                            <div className="profile-field">
+                                                                                <span className="profile-label">HEIGHT:</span>{" "}
+                                                                                <input
+                                                                                    type="text"
+                                                                                    className={`profile-input square-input`}
+                                                                                    value={`${detail.fitUser.height} cm`}
+
+                                                                                />
+                                                                            </div>
+                                                                            <div className="profile-field">
+                                                                                <span className="profile-label">WEIGHT:</span>{" "}
+                                                                                <input
+                                                                                    type="text"
+                                                                                    className={`profile-input square-input`}
+                                                                                    value={`${detail.fitUser.weight} lb`}
+
+                                                                                />
+                                                                            </div>
+
+
+                            {!detail.isFollowing && <button className="btn btn-primary unfollow" onClick={() => {
                                 handleFollow(true)
                             }}>
                                 FOLLOW
                             </button>}
 
-                            {detail.isFollowing && <button onClick={() => {
+                            {detail.isFollowing && <button className="btn btn-primary unfollow" onClick={() => {
                                 handleFollow(false)
                             }}>
                                 UNFOLLOW
