@@ -71,10 +71,7 @@ const App = () => {
             <Route
               path="/"
               element={
-                <ProtectedRoute>
-                  <LandingPage></LandingPage>
-                  {/* <Feed /> */}
-                </ProtectedRoute>
+                  <LandingPage/>
               }
             />
             <Route
