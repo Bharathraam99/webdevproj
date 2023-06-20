@@ -6,7 +6,7 @@ import "./index.css";
 
 const Profile = () => {
   const { currentUser } = useSelector((state) => state.user);
-   const { search } = useSelector((state) => state.search);
+  const { search } = useSelector((state) => state.search);
   const [editMode, setEditMode] = useState(false);
 
   const handleEditProfile = () => {
@@ -34,28 +34,34 @@ const Profile = () => {
                       src={`${currentUser.fitUser.profilePicture}`}
                       alt="Profile Picture"
                     />
-                    <span className="username">@{currentUser.user.username}</span>
- &nbsp;
-  &nbsp;
-  <span className="profile-stat">156</span>
-                                          <span > followers</span>
-                                           &nbsp; &nbsp;  &nbsp;
-                                             <span className="profile-stat">75</span>
-                                             &nbsp;
-                                          <span >following</span>
-
-                                           &nbsp;  &nbsp;  &nbsp;
-                                             <span className="profile-stat">3</span>
-                                             &nbsp;
-                                          <span>posts</span>
-                                           &nbsp; &nbsp;  &nbsp;
-
+                    <span className="username">
+                      @{currentUser.user.username}
+                    </span>
+                    &nbsp; &nbsp;
+                    <span className="profile-stat">156</span>
+                    <span> followers</span>
+                    &nbsp; &nbsp; &nbsp;
+                    <span className="profile-stat">75</span>
+                    &nbsp;
+                    <span>following</span>
+                    &nbsp; &nbsp; &nbsp;
+                    <span className="profile-stat">3</span>
+                    &nbsp;
+                    <span>posts</span>
+                    &nbsp; &nbsp; &nbsp;
                     {currentUser && (
                       <span className="edit-profile-button">
                         {editMode ? (
-                          <button className="rounded-pill btn btn-primary mt-2 ps-3 pe-3 fw-bold">Save</button>
+                          <button className="rounded-pill btn btn-primary mt-2 ps-3 pe-3 fw-bold">
+                            Save
+                          </button>
                         ) : (
-                          <button className="rounded-pill btn btn-primary mt-2 ps-3 pe-3 fw-bold" onClick={handleEditProfile}>Edit Profile</button>
+                          <button
+                            className="rounded-pill btn btn-primary mt-2 ps-3 pe-3 fw-bold"
+                            onClick={handleEditProfile}
+                          >
+                            Edit Profile
+                          </button>
                         )}
                       </span>
                     )}
@@ -65,7 +71,9 @@ const Profile = () => {
                       <span className="profile-label">FIRST NAME:</span>{" "}
                       <input
                         type="text"
-                        className={`profile-input square-input ${editMode ? "editable" : ""}`}
+                        className={`profile-input square-input ${
+                          editMode ? "editable" : ""
+                        }`}
                         value={currentUser.user.firstName}
                         readOnly={!editMode}
                         onChange={(e) => {
@@ -77,7 +85,9 @@ const Profile = () => {
                       <span className="profile-label">LAST NAME:</span>{" "}
                       <input
                         type="text"
-                        className={`profile-input square-input ${editMode ? "editable" : ""}`}
+                        className={`profile-input square-input ${
+                          editMode ? "editable" : ""
+                        }`}
                         value={currentUser.user.lastName}
                         readOnly={!editMode}
                         onChange={(e) => {
@@ -89,7 +99,9 @@ const Profile = () => {
                       <span className="profile-label">HEIGHT:</span>{" "}
                       <input
                         type="text"
-                        className={`profile-input square-input ${editMode ? "editable" : ""}`}
+                        className={`profile-input square-input ${
+                          editMode ? "editable" : ""
+                        }`}
                         value={`${currentUser.fitUser.height} cm`}
                         readOnly={!editMode}
                         onChange={(e) => {
@@ -101,7 +113,9 @@ const Profile = () => {
                       <span className="profile-label">WEIGHT:</span>{" "}
                       <input
                         type="text"
-                        className={`profile-input square-input ${editMode ? "editable" : ""}`}
+                        className={`profile-input square-input ${
+                          editMode ? "editable" : ""
+                        }`}
                         value={`${currentUser.fitUser.weight} lb`}
                         readOnly={!editMode}
                         onChange={(e) => {
