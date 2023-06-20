@@ -1,5 +1,6 @@
 import axios from "axios";
 
+
 const SERVER_POST_API_URL = "http://206.189.181.234:8087/home";
 
 const FOLLOWER_URL = `${SERVER_POST_API_URL}`;
@@ -33,4 +34,14 @@ export const getFollowing = async (token) => {
     })
     return response.data;
 };
+
+
+export async function getAllUsers(token) {
+    const response = await api.get(`${FOLLOWER_URL}/users`, {
+        headers: {
+            'Authorization': `Bearer ${token}`
+        }
+    })
+    return response.data;
+}
 

@@ -1,9 +1,10 @@
 import {createSlice} from "@reduxjs/toolkit";
-import {getFollowingThunk, getFollowersThunk, updateFollowerThunk} from "../services/follow-thunks";
+import {getFollowingThunk, getFollowersThunk, updateFollowerThunk,getAllUsersThunk} from "../services/follow-thunks";
 
 const initialState = {
     following: null,
-    followers: null
+    followers: null,
+    allUsers: null
 }
 
 const followSlice = createSlice({
@@ -16,7 +17,10 @@ const followSlice = createSlice({
         },
         [getFollowingThunk.fulfilled]: (state, {payload}) => {
             state.following = payload;
-        }
+        },
+        [getAllUsersThunk.fulfilled]: (state, {payload}) => {
+            state.allUsers = payload;
+        },
     },
 });
 export default followSlice.reducer;

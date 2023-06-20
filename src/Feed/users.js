@@ -4,7 +4,7 @@ import NavigationSidebar from "../nav/index.js";
 import "./users.css";
 import {useDispatch} from "react-redux";
 import {profileThunk} from "../services/auth-thunks";
-import {getFollowersThunk, getFollowingThunk} from "../services/follow-thunks";
+import {getAllUsersThunk, getFollowersThunk, getFollowingThunk} from "../services/follow-thunks";
 
 import {useSelector} from "react-redux";
 
@@ -13,6 +13,7 @@ import {useNavigate} from "react-router-dom";
 const Users = () => {
     const followers = useSelector(state => state.follow.followers);
     const following = useSelector(state => state.follow.following);
+    const allUsers = useSelector(state => state.follow.allUsers);
     const token = useSelector((state) => state.user.token);
     const dispatch = useDispatch();
 
@@ -20,6 +21,7 @@ const Users = () => {
         const load = async () => {
             await dispatch(getFollowersThunk(token))
             await dispatch(getFollowingThunk(token))
+            await dispatch(getAllUsersThunk(token))
         };
         load();
     }, []);
@@ -46,13 +48,13 @@ const Users = () => {
         {id: 5, name: "John Doe", picture: "../images/john.jpg"},
     ];*/
 
-    const allUsers = [
+    /*const allUsers = [
         {id: 1, name: "John Doe", picture: "../images/john.jpg"},
         {id: 2, name: "John Doe", picture: "../images/john.jpg"},
         {id: 3, name: "John Doe", picture: "../images/john.jpg"},
         {id: 4, name: "John Doe", picture: "../images/john.jpg"},
         {id: 5, name: "John Doe", picture: "../images/john.jpg"},
-    ];
+    ];*/
 
     const renderUsersList = (users) => {
         return (
@@ -94,7 +96,7 @@ const Users = () => {
                     {currentUser === null && (
                         <div className="profile-message">PLEASE LOG IN TO SEE USERS</div>
                     )}
-                    {currentUser && followers && following && (
+                    {currentUser && followers && following && allUsers && (
                         <div>
                             <div className="nav-tabs-container">
                                 <ul className="nav nav-tabs">
