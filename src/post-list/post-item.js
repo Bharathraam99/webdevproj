@@ -1,59 +1,72 @@
-import {useDispatch} from "react-redux";
-import {deletePost} from "../reducers/posts-reducer";
+import { useDispatch, useSelector } from "react-redux";
+import { deletePost } from "../reducers/posts-reducer";
 import PostStats from "./post-stats";
-import {BsXLg} from 'react-icons/bs';
+import { BsXLg } from "react-icons/bs";
+import { AiFillCheckCircle } from "react-icons/ai";
+import "./postItem.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrashAlt } from "@fortawesome/free-solid-svg-icons";
 
-import {AiFillCheckCircle} from "react-icons/ai";
-import "./index.css";
+const PostItem = ({ post }) => {
+  const dispatch = useDispatch();
+  const { currentUser } = useSelector((state) => state.user);
 
-const PostItem = ({post}) => {
-    const dispatch = useDispatch();
-    console.log(post)
-    const deletePostHandler = (id) => {
-        dispatch(deletePost(id));
-    }
+  const deletePostHandler = (id) => {
+    dispatch(deletePost(id));
+  };
 
+  return (
+    <>
+      <li className="list-group-item temp">
+        <div className="row tempd">
+          <div className="col-auto">
+            <img
+              width={50}
+              className="float-end rounded-circle rounded-image"
+              src={require(`../images/default.jpg`)}
+              height={48}
+              width={48}
+            />
+          </div>
+          <div className="col-10 image-container">
+            <div className="tuit-info">
+              <span className="fw-bolder">{post.postUserName}</span>
+              <AiFillCheckCircle className="tuit-verified-icon" />
+              <span className="text-muted">
+                {post.postUserName} . {post.time}
+              </span>
+            </div>
+            <div>{post.postBody}</div>
+            {post.imageUrl !== "" && (
+              <img
+                src={`${post.imageUrl}`}
+                height={400}
+                width={430}
+                alt="Sample"
+                className="rounded-wd mt-3 img-fluid"
+              />
+            )}
+          </div>
+          <div>
+            {currentUser && post.postUserName === currentUser.user.username && (
+              <div
+                className="btn delete-button trashpos"
+                onClick={() => deletePostHandler(post.postId)}
+              >
+                <FontAwesomeIcon icon={faTrashAlt} className="red-trash-icon" />{" "}
+              </div>
+            )}
+          </div>
 
-    return (
-        <>
-            <li className="list-group-item">
-                <div className="row">
-                    <div className="col-auto">
-                        <img width={50}
-                             className="float-end rounded-circle"
-                             src={require(`../images/default.jpg`)} height={48} width={48}/>
-                    </div>
-                    <div className="col-10">
-                        <div className="tuit-info">
-                            <span className="fw-bolder">{post.postUserName}</span>
-                            <AiFillCheckCircle className="tuit-verified-icon"/>
-                            <span className="text-muted">{post.postUserName} . {post.time}</span>
-                        </div>
-                        <div>{post.postBody}</div>
-                        {post.imageUrl !== "" &&
-                        <img src={`${post.imageUrl}`} height={308} width={408} alt="Sample"/>
-                        }
-                    </div>
-                    <div className="col-8">
-                        <div>
-                            <button className="btn delete-button" onClick={() => deletePostHandler(post.postId)}>
-                                <BsXLg/>
-                            </button>
-                        </div>
-                    </div>
-                    <div className="col-auto">
-                        <div className="tuit-stats-container">
-
-                            <PostStats
-                                key={post.postId}
-                                post={post}
-                            />
-                        </div>
-                    </div>
-                </div>
-            </li>
-        </>
-    )
+          <div className="col-auto">
+            <div className="tuit-stats-container image-container">
+              <PostStats key={post.postId} post={post} />
+            </div>
+          </div>
+        </div>
+      </li>
+    </>
+  );
 };
-export default PostItem;
 
+export default PostItem;

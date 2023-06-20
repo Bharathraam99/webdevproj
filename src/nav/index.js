@@ -13,7 +13,6 @@ import {
   faEllipsisH,
 } from "@fortawesome/free-solid-svg-icons";
 import { useSelector } from "react-redux";
-
 const NavigationSidebar = () => {
   const { currentUser } = useSelector((state) => state.user);
   console.log(currentUser);
@@ -29,6 +28,9 @@ const NavigationSidebar = () => {
     bookmarks: "fa fa-bookmark",
   };
   const [displayCard, setDisplayCard] = useState(false);
+  const handleLogout = () => {
+    // history.push("/");
+  };
 
   const handleLinkClick = () => {
     setDisplayCard(true);
@@ -97,6 +99,7 @@ const NavigationSidebar = () => {
             active === "logout" ? "active" : ""
           }`}
           to="/"
+          onClick={handleLogout}
         >
           <FontAwesomeIcon className="pe-2" icon={faSignOut} />
           <span className="d-none d-xl-inline">{"Logout"}</span>
