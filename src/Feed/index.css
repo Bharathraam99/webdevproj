@@ -86,11 +86,7 @@ height:40px;
 .abc{
 margin-left:500px;
 width:450px;
-
-  border-radius: 10px;
-  overflow: hidden;
-  /* Add other styles as needed */
-
+border-radius: 10px;
 }
 .h1{
 margin-left:500px;
