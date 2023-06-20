@@ -160,7 +160,7 @@ const Profile = () => {
                                 )}
                                   </div>
                                   <h1 className="h1"> MY POSTS</h1>
-                                  <li className="list-group-item abc">
+
 
 
                                                 {currentUser && (
@@ -168,27 +168,31 @@ const Profile = () => {
                                                     {posts
                                                       .filter((post) => post.postUserName === currentUser.user.username)
                                                       .map((post) => (
-                                                        <div key={post.id} className="post">
+                                                      <li className="list-group-item abc  rounded" key={post.id} >
+                                                        <div className="post">
                                                           <div className="post-header">
                                                           <span className="fw-bolder">{post.postUserName}</span>
                                                                                       <AiFillCheckCircle className="tuit-verified-icon"/>
                                                                                       <span className="text-muted">@{post.postUserName} . {post.time}</span>
 
                                                                                   <div>{post.postBody}</div>
+                                                                                  {post.imageUrl &&(
                                                             <img className="post-user-picture"
-                                                            src={`${post.imageUrl}`} height={308} width={408}  alt="User Picture" />
+                                                            src={`${post.imageUrl}`} height={308} width={408}  alt="User Picture" />)}
 
                                                             <span className="post-date">{post.createdAt}</span>
                                                           </div>
+
                                                           <div className="post-content">{post.content}</div>
                                                           {/* Add other post details as needed */}
                                                         </div>
+                                                          </li>
                                                       ))}
                                                   </div>
                                                 )}
 
 
-                            </li>
+
                         </div>
                     </div>
                 </div>
