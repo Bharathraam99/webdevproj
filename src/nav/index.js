@@ -12,11 +12,13 @@ import {
   faSignOut,
   faEllipsisH,
 } from "@fortawesome/free-solid-svg-icons";
-import { useSelector } from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
+import {logoutThunk} from "../services/auth-thunks";
 const NavigationSidebar = () => {
   const { currentUser } = useSelector((state) => state.user);
   console.log(currentUser);
   const { pathname } = useLocation();
+  const dispatch=useDispatch();
 
   const [ignore, tuiter, active] = pathname.split("/");
   const links = ["home", "explore", "notifications", "messages", "bookmarks"];
@@ -28,8 +30,9 @@ const NavigationSidebar = () => {
     bookmarks: "fa fa-bookmark",
   };
   const [displayCard, setDisplayCard] = useState(false);
-  const handleLogout = () => {
+  const handleLogout = async () => {
     // history.push("/");
+    await dispatch(logoutThunk())
   };
 
   const handleLinkClick = () => {

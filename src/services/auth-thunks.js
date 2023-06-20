@@ -5,7 +5,7 @@ import * as authService from "./auth-service";
 export const loginThunk = createAsyncThunk(
     "user/login", async (credentials) => {
         const user = await authService.login(credentials);
-        if(user.code===403){
+        if (user.code === 403) {
             throw new Error("Username Already exists");
         }
         return user.data;
@@ -23,7 +23,7 @@ export const profileThunk = createAsyncThunk(
 export const registerThunk = createAsyncThunk(
     "user/register", async (credentials) => {
         const user = await authService.register(credentials);
-        if(user.code===400){
+        if (user.code === 400) {
             throw new Error("Username Already exists");
         }
         return user;
@@ -31,11 +31,12 @@ export const registerThunk = createAsyncThunk(
 )
 
 
-/*export const logoutThunk = createAsyncThunk(
+export const logoutThunk = createAsyncThunk(
     "auth/logout", async () => {
-        return await authService.logout();
+        return authService.logout();
     });
-export const updateUserThunk = createAsyncThunk(
+
+/*export const updateUserThunk = createAsyncThunk(
     "user/updateUser", async (user) => {
         await authService.updateUser(user);
         return user;

@@ -60,16 +60,16 @@ export const register = async (user) => {
 };
 
 
-/*export const logout = async () => {
+export const logout = async () => {
 
-    const response = await api.post(`${USERS_URL}/logout`);
+    //const response = await api.post(`${USERS_URL}/logout`);
 
-    return response.data;
+    return null;
 
 };
 
 
-export const updateUser = async (user) => {
+/*export const updateUser = async (user) => {
 
     const response = await api.put(`${USERS_URL}/${user._id}`, user);
 
