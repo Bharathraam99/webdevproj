@@ -3,6 +3,8 @@ import Feed from "./feed";
 import NavigationSidebar from "../nav";
 import {useDispatch, useSelector} from "react-redux";
 import "./index.css";
+import {Link} from "react-router-dom";
+import {AiFillCheckCircle} from "react-icons/ai";
 import {getFollowersThunk, getFollowingThunk} from "../services/follow-thunks";
 import {getPostThunk} from "../services/post-thunks";
 
@@ -58,12 +60,16 @@ const Profile = () => {
                       @{currentUser.user.username}
                     </span>
                                                 &nbsp; &nbsp;
+                                                <Link to="/users" className="profile-stat-link">
                                                 <span className="profile-stat">{followers.length}</span>
                                                 <span> followers</span>
+                                                 </Link>
                                                 &nbsp; &nbsp; &nbsp;
+                                                 <Link to="/users" className="profile-stat-link">
                                                 <span className="profile-stat">{following.length}</span>
                                                 &nbsp;
                                                 <span>following</span>
+                                                 </Link>
                                                 &nbsp; &nbsp; &nbsp;
                                                 <span className="profile-stat">{noOfPosts}</span>
                                                 &nbsp;
@@ -152,7 +158,37 @@ const Profile = () => {
                                         PLEASE LOG IN TO SEE PROFILE
                                     </div>
                                 )}
-                            </div>
+                                  </div>
+                                  <h1 className="h1"> MY POSTS</h1>
+                                  <li className="list-group-item abc">
+
+
+                                                {currentUser && (
+                                                  <div className="profile-posts">
+                                                    {posts
+                                                      .filter((post) => post.postUserName === currentUser.user.username)
+                                                      .map((post) => (
+                                                        <div key={post.id} className="post">
+                                                          <div className="post-header">
+                                                          <span className="fw-bolder">{post.postUserName}</span>
+                                                                                      <AiFillCheckCircle className="tuit-verified-icon"/>
+                                                                                      <span className="text-muted">@{post.postUserName} . {post.time}</span>
+
+                                                                                  <div>{post.postBody}</div>
+                                                            <img className="post-user-picture"
+                                                            src={`${post.imageUrl}`} height={308} width={408}  alt="User Picture" />
+
+                                                            <span className="post-date">{post.createdAt}</span>
+                                                          </div>
+                                                          <div className="post-content">{post.content}</div>
+                                                          {/* Add other post details as needed */}
+                                                        </div>
+                                                      ))}
+                                                  </div>
+                                                )}
+
+
+                            </li>
                         </div>
                     </div>
                 </div>

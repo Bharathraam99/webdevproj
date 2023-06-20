@@ -83,3 +83,15 @@ height:40px;
  }
  .profile-stat{
  font-weight:bold;}
+.abc{
+margin-left:500px;
+width:450px;
+
+  border-radius: 10px;
+  overflow: hidden;
+  /* Add other styles as needed */
+
+}
+.h1{
+margin-left:500px;
+}
