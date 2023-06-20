@@ -41,7 +41,7 @@ const PostItem = ({post}) => {
                             </button>
                         </div>
                     </div>
-                    <div className="col-auto abc">
+                    <div className="col-auto">
                         <div className="tuit-stats-container">
 
                             <PostStats
