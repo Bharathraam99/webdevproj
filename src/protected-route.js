@@ -12,7 +12,6 @@ function ProtectedRoute({ children }) {
     const load = async () => {
       const { payload } = await dispatch(profileThunk(token));
       if (!payload) {
-        console.log("PRO ROUTE PAYLOAD: "+payload);
         navigate("/login");
       }
       setLoading(false);
