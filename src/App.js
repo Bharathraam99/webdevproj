@@ -131,7 +131,7 @@ const App = () => {
               }
             />
             <Route
-              path="/details/:username"
+              path="/details/:userId"
               element={
                 <ProtectedRoute>
                   <Details />

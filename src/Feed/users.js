@@ -71,7 +71,7 @@ const Users = () => {
                                     <h5 className="card-title">{user.firstName} {user.lastName}</h5>
                                     <button
                                         className="btn btn-primary btn-sm"
-                                        onClick={() => navigate("/details/Saravanan")} // Change This To The Clicked Username
+                                        onClick={() => navigate(`/details/${user.userId}`)} // Change This To The Clicked Username
                                     >
                                         View Profile
                                     </button>
