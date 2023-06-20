@@ -59,7 +59,7 @@ const SearchItem = ({ search }) => {
               </button>
             </div>
           </div>
-          <div className="col-auto abc">
+          <div className="col-auto">
             <div className="tuit-stats-container">
               <SearchStats
                 search={search}
