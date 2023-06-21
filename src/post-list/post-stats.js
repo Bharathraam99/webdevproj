@@ -33,8 +33,8 @@ const PostStats = ({ post }) => {
   return (
     <div className="tuit-stats">
       <div className="tuit-stat">
-        {/* <BsChatSquare className="tuit-stat-icon" /> */}
-        {/*<span className="tuit-stat-count">{post.retuits}</span>*/}
+       <BsChatSquare className="tuit-stat-icon" />
+        <span className="tuit-stat-count">{post.retuits}</span>
       </div>
 
       {currentUser && (
@@ -66,15 +66,15 @@ const PostStats = ({ post }) => {
         </div>
       )}
       <div className="tuit-stat">
-        {/* <BsArrowRepeat className="tuit-stat-icon" /> */}
-        {/*<span className="tuit-stat-count">{post.replies}</span>*/}
+        <BsArrowRepeat className="tuit-stat-icon" />
+       <span className="tuit-stat-count">{post.replies}</span>
       </div>
       <div className="tuit-stat">
         <FaThumbsDown className="tuit-stat-icon" />
         <span className="tuit-stat-count"> {post.dislikes}</span>
       </div>
       <div className="tuit-stat">
-        {/* <BsShare className="tuit-stat-icon"/> */}
+      <BsShare className="tuit-stat-icon"/>
       </div>
     </div>
   );

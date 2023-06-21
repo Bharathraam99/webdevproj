@@ -48,7 +48,15 @@ font-weight : bold;}
   right: 0;
 }
 .routinepost{
-height:200px;}
+height:500px;}
+
+.h2{
+margin-left:100px;
+margin-top:20px;
+margin-bottom:40px;
+}
+.exercise{
+margin-bottom:20px;}
 
 
 

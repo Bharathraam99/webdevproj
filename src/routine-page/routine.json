@@ -1,7 +1,23 @@
 [
   {
     "routineId": 1,
-    "routineBody": "Hello! this is the first post",
+    "routineBody": [
+      {
+        "exerciseId": 1,
+        "exerciseName": "Cardio",
+        "completed": false
+      },
+      {
+        "exerciseId": 2,
+        "exerciseName": "Yoga",
+        "completed": true
+      },
+      {
+        "exerciseId": 3,
+        "exerciseName": "Pilates",
+        "completed": false
+      }
+    ],
     "routineTitle": "Post title",
     "imageUrl": "samplepost.webp",
     "routineUserName": "saran",
