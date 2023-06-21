@@ -1,7 +1,7 @@
 import {createSlice} from "@reduxjs/toolkit";
 import posts from '../post-list/posts.json'
 import users from '../TrainerFeed/users.json'
-import {addPostThunk, getPostThunk} from "../services/post-thunks";
+import {addPostThunk, deletePostThunk, getPostThunk} from "../services/post-thunks";
 
 const currentUser = {
     "userId": 1,
@@ -43,12 +43,12 @@ const postsSlice = createSlice({
                 postId: (new Date()).getTime(),
             })
         },*/
-        deletePost(state, action) {
+        /*deletePost(state, action) {
             const index = state.posts
                 .findIndex(post =>
                     post.postId === action.payload);
             state.posts.splice(index, 1);
-        },
+        },*/
 
     },
     extraReducers: {
@@ -58,6 +58,9 @@ const postsSlice = createSlice({
         [getPostThunk.fulfilled]: (state, {payload}) => {
             console.log("INSIDE GET POST THUNK");
             state.posts = payload.postList;
+        },
+        [deletePostThunk.fulfilled]:(state,{payload})=>{
+            //
         }
     }
 

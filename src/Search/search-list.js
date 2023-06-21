@@ -11,6 +11,7 @@ const SearchList = ({searchKeyword}) => {
     const {currentUser} = useSelector((state) => state.user);
 
     useEffect(() => {
+        console.log("SEARCH EXECUTED")
         const load = async () => {
             const allUsers = await dispatch(getAllUsersThunk(token)).then(res => res.payload);
             setSearch(allUsers.filter((user) =>

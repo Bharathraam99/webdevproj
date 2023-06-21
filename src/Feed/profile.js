@@ -12,11 +12,19 @@ import {
 import {getPostThunk} from "../services/post-thunks";
 import PostItem from "../post-list/post-item.js";
 import {useNavigate} from "react-router";
+import {profileThunk, updateUserThunk} from "../services/auth-thunks";
 
 const Profile = () => {
     const {currentUser} = useSelector((state) => state.user);
     const {search} = useSelector((state) => state.search);
-    const [editMode, setEditMode] = useState(false);
+
+    let [editMode, setEditMode] = useState(false);
+
+    let [firstName, setFirstName] = useState(currentUser?.user.firstName)
+    let [lastName, setLastName] = useState(currentUser?.user.lastName);
+    let [height, setHeight] = useState(currentUser?.fitUser.height);
+    let [weight, setWeight] = useState(currentUser?.fitUser.weight);
+
     const dispatch = useDispatch();
     const followers = useSelector((state) => state.follow.followers);
     const following = useSelector((state) => state.follow.following);
@@ -28,6 +36,48 @@ const Profile = () => {
     const handleEditProfile = () => {
         setEditMode(true);
     };
+
+    const handleSave = async () => {
+        setEditMode(false);
+        if (firstName === "") {
+            alert("First Name cannot be an empty string");
+        } else if (lastName === "") {
+            alert("Last Name cannot be an empty string");
+        } else if (height === "") {
+            alert("Height cannot be null");
+        } else if (parseInt(height) < 0) {
+            alert("Height cannot be negative");
+        } else if (weight === "") {
+            alert("Weight cannot be null");
+        } else if (parseInt(weight) < 0) {
+            alert("Weight cannot be negative");
+        } else {
+            const user = {
+                "userId": currentUser.user.id,
+                "firstName": firstName,
+                "lastName": lastName,
+                "userName": currentUser.user.username,
+                "password": currentUser.user.password,
+                "role": currentUser.user.role,
+                "height": height,
+                "weight": weight,
+                "profilePicture": currentUser.fitUser.profilePicture
+            };
+
+            try {
+                await dispatch(updateUserThunk({"token": token, "user": user}));
+                await dispatch(profileThunk(token));
+                setFirstName(currentUser.user.firstName);
+                setLastName(currentUser.user.lastName);
+                setHeight(currentUser.fitUser.height);
+                setWeight(currentUser.fitUser.weight);
+            } catch (e) {
+                alert(e);
+            }
+        }
+
+    };
+
 
     useEffect(() => {
         const load = async () => {
@@ -95,7 +145,8 @@ const Profile = () => {
                                                 {currentUser && (
                                                     <span className="edit-profile-button">
                             {editMode ? (
-                                <button className="rounded-pill btn btn-primary mt-2 ps-3 pe-3 fw-bold">
+                                <button className="rounded-pill btn btn-primary mt-2 ps-3 pe-3 fw-bold"
+                                        onClick={handleSave}>
                                     Save
                                 </button>
                             ) : (
@@ -123,10 +174,11 @@ const Profile = () => {
                                                         className={`profile-input square-input ${
                                                             editMode ? "editable" : ""
                                                         }`}
-                                                        value={currentUser.user.firstName}
+                                                        value={firstName}
                                                         readOnly={!editMode}
                                                         onChange={(e) => {
                                                             // Handle the change event
+                                                            setFirstName(e.target.value)
                                                         }}
                                                     />
                                                 </div>
@@ -137,38 +189,41 @@ const Profile = () => {
                                                         className={`profile-input square-input ${
                                                             editMode ? "editable" : ""
                                                         }`}
-                                                        value={currentUser.user.lastName}
+                                                        value={lastName}
                                                         readOnly={!editMode}
                                                         onChange={(e) => {
                                                             // Handle the change event
+                                                            setLastName(e.target.value)
                                                         }}
                                                     />
                                                 </div>
                                                 <div className="profile-field">
-                                                    <span className="profile-label">Height:</span>{" "}
+                                                    <span className="profile-label">Height(cm):</span>{" "}
+                                                    <input
+                                                        type="number"
+                                                        className={`profile-input square-input ${
+                                                            editMode ? "editable" : ""
+                                                        }`}
+                                                        value={height}
+                                                        readOnly={!editMode}
+                                                        onChange={(e) => {
+                                                            // Handle the change event
+                                                            setHeight(e.target.value);
+                                                        }}
+                                                    />
+                                                </div>
+                                                <div className="profile-field">
+                                                    <span className="profile-label">Weight(lb):</span>{" "}
                                                     <input
                                                         type="text"
                                                         className={`profile-input square-input ${
                                                             editMode ? "editable" : ""
                                                         }`}
-                                                        value={`${currentUser.fitUser.height} cm`}
+                                                        value={weight}
                                                         readOnly={!editMode}
                                                         onChange={(e) => {
                                                             // Handle the change event
-                                                        }}
-                                                    />
-                                                </div>
-                                                <div className="profile-field">
-                                                    <span className="profile-label">Weight:</span>{" "}
-                                                    <input
-                                                        type="text"
-                                                        className={`profile-input square-input ${
-                                                            editMode ? "editable" : ""
-                                                        }`}
-                                                        value={`${currentUser.fitUser.weight} lb`}
-                                                        readOnly={!editMode}
-                                                        onChange={(e) => {
-                                                            // Handle the change event
+                                                            setWeight(e.target.value);
                                                         }}
                                                     />
                                                 </div>

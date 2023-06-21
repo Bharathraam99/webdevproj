@@ -61,21 +61,21 @@ export const register = async (user) => {
 
 
 export const logout = async () => {
-
-    //const response = await api.post(`${USERS_URL}/logout`);
-
     return null;
-
 };
 
 
-/*export const updateUser = async (user) => {
+export const updateUser = async (user, token) => {
 
-    const response = await api.put(`${USERS_URL}/${user._id}`, user);
+    const response = await api.post(`${USERS_URL}register`, user, {
+        headers: {
+            'Authorization': `Bearer ${token}`
+        }
+    });
 
     return response.data;
 
 };
-*/
+
 
 

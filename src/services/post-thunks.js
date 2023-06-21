@@ -8,6 +8,13 @@ export const addPostThunk = createAsyncThunk(
     }
 );
 
+export const deletePostThunk = createAsyncThunk(
+    "post/add", async ({id, token}) => {
+        const response = await postService.deletePost(id, token);
+        return response;
+    }
+);
+
 export const getPostThunk = createAsyncThunk("post/get", async (token) => {
     const response = await postService.getPosts(token);
     return response;

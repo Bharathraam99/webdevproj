@@ -15,6 +15,16 @@ export const addPost = async (post, token) => {
     return response.data;
 };
 
+export const deletePost = async (id,token) => {
+    console.log("ID DELETE: "+id);
+    const response = await api.post(`${POSTS_URL}/deletePost/${id}`, null, {
+        headers: {
+            'Authorization': `Bearer ${token}`
+        }
+    });
+    return response;
+};
+
 export const getPosts = async (token) => {
     const response = await api.get(`${POSTS_URL}/feed`, {
         headers: {
@@ -32,3 +42,4 @@ export const likeUpdate=async (postId, userId, isLike, token)=>{
     });
     return response.data;
 };
+

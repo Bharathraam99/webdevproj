@@ -15,7 +15,6 @@ export const loginThunk = createAsyncThunk(
 
 export const profileThunk = createAsyncThunk(
     "auth/profile", async (token) => {
-        //return await authService.profile();
         const response = await authService.profile(token);
         return response.data;
     });
@@ -36,8 +35,11 @@ export const logoutThunk = createAsyncThunk(
         return authService.logout();
     });
 
-/*export const updateUserThunk = createAsyncThunk(
-    "user/updateUser", async (user) => {
-        await authService.updateUser(user);
+export const updateUserThunk = createAsyncThunk(
+    "user/updateUser", async ({user, token}) => {
+        const response = await authService.updateUser(user, token);
+        if (response.code === 400 || response.code === 500 || response.code === 404) {
+            throw new Error(response.message);
+        }
         return user;
-    });*/
+    });
