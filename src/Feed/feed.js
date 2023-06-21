@@ -4,11 +4,14 @@ import "./feeds.css";
 import { NavLink, useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { AiOutlineSearch } from "react-icons/ai";
-
+import {useSelector, useDispatch} from "react-redux";
 import { GoGear } from "react-icons/go";
 import Post from "./post";
 
 function Feed() {
+ const { currentUser } = useSelector((state) => state.user);
+ const dispatch=useDispatch();
+ console.log(currentUser)
  const [activeTab, setActiveTab] = useState("feed");
  const navigate = useNavigate();
   const handleTabClick = (tab) => {
@@ -26,11 +29,11 @@ function Feed() {
   <>
     <div className="feed-page" style={{ backgroundColor: "#8AC7DB" }}>
       <div className="row">
-             <div className="col-11 position-relative">
+             {currentUser && (<div className="col-11 position-relative">
                <input placeholder="Search"
                       className="form-control rounded-pill ps-5" onKeyDown={handleSearch}/>
                <AiOutlineSearch className="fs-3 position-absolute wd-nudge-up"/>
-             </div>
+             </div>)}
              <div className="col-1">
 
              </div>
