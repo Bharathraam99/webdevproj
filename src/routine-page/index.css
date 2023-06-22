@@ -1,62 +1,35 @@
-.tuit-stats {
+
+
+
+.routine{
+
+  background-color: #8AC7DB;
+  padding: 20px;
+  border-radius: 10px;
+}
+.routine-header {
   display: flex;
   align-items: center;
-
-
-}
-.tuit-topic{
-font-weight : bold;}
-
-.tuit-stat {
-
-  display: flex;
-  align-items: center;
-  padding-top: 20px;
-  padding-bottom: 20px;
-   max-width: 100%;
-
-
-}
-@media (min-width: 300px) {
-  .tuit-stat {
-    padding-right: 10px;
-  }
+   margin-bottom :35px;
 }
 
-@media (min-width: 980px) {
-  .tuit-stat {
-    padding-left: 70px;
-  }
-}
-
-.tuit-stat-icon {
+.routine-header h1 {
   margin-right: 10px;
-
-}
-.liked {
-  color: red;
+margin-top : 10px;
 }
 
-.tuit-verified-icon {
-  color: #4267B2;
-  margin-left : 5px;
-  margin-right : 5px;
-}
-.delete-button {
-  position: absolute;
-  top: 0;
-  right: 0;
-}
-.routinepost{
-height:500px;}
+.del {
+  margin-left: auto;
+  width:100px;
+  height :40px;
+  margin-bottom :5px;
 
-.h2{
-margin-left:100px;
-margin-top:20px;
-margin-bottom:40px;
 }
-.exercise{
-margin-bottom:20px;}
+.h4{
+margin-top :10px;
+margin-left :30px;
+margin-bottom :25px;}
+
 
 
 

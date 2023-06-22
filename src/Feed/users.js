@@ -11,6 +11,7 @@ import {useSelector} from "react-redux";
 import {useNavigate} from "react-router-dom";
 
 const Users = () => {
+
     const followers = useSelector(state => state.follow.followers);
     const following = useSelector(state => state.follow.following);
     const allUsers = useSelector(state => state.follow.allUsers);
