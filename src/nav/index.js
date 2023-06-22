@@ -12,13 +12,13 @@ import {
   faSignOut,
   faEllipsisH,
 } from "@fortawesome/free-solid-svg-icons";
-import {useDispatch, useSelector} from "react-redux";
-import {logoutThunk} from "../services/auth-thunks";
+import { useDispatch, useSelector } from "react-redux";
+import { logoutThunk } from "../services/auth-thunks";
 const NavigationSidebar = () => {
   const { currentUser } = useSelector((state) => state.user);
   console.log(currentUser);
   const { pathname } = useLocation();
-  const dispatch=useDispatch();
+  const dispatch = useDispatch();
 
   const [ignore, tuiter, active] = pathname.split("/");
   const links = ["home", "explore", "notifications", "messages", "bookmarks"];
@@ -32,7 +32,7 @@ const NavigationSidebar = () => {
   const [displayCard, setDisplayCard] = useState(false);
   const handleLogout = async () => {
     // history.push("/");
-    await dispatch(logoutThunk())
+    await dispatch(logoutThunk());
   };
 
   const handleLinkClick = () => {
@@ -40,8 +40,15 @@ const NavigationSidebar = () => {
   };
   return (
     <div className="navigation-sidebar">
-      <Link to="/tuiter" className="list-group-item text-capitalize disabled">
-        <span className="icon">
+      <Link to="/" className="list-group-item text-capitalize">
+        <span
+          className="icon"
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
           <i className="fa-solid fa-dumbbell"></i>
         </span>
       </Link>
@@ -119,11 +126,11 @@ const NavigationSidebar = () => {
         <span className="d-none d-xl-inline">{"more"}</span>
       </Link> */}
 
-      {displayCard && (
+      {/* {displayCard && (
         <div className="login-outdivcard">
           <Card setToken={() => setDisplayCard(false)} />
         </div>
-      )}
+      )} */}
     </div>
   );
 };

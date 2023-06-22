@@ -50,7 +50,7 @@ const NewPost = () => {
   return (
     <>
       {currentUser !== null && (
-        <div className="row">
+        <div className="row" style={{marginTop: "20px"}}>
           <div className="col-auto">
             <img
               className="rounded-circle"

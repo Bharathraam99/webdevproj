@@ -40,17 +40,11 @@ h4 {
   font-size: 18px;
 }
 
-/* Link styles */
 a {
   color: #007bff;
   text-decoration: none;
 }
 
-a:hover {
-  text-decoration: underline;
-}
-
-/* Button styles */
 .button {
   display: inline-block;
   padding: 10px 20px;
