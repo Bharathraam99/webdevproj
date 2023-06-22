@@ -1,60 +1,3 @@
-.tuit-stats {
-  display: flex;
-  align-items: center;
-
-
-}
-.tuit-topic{
-font-weight : bold;}
-
-.tuit-stat {
-
-  display: flex;
-  align-items: center;
-  padding-top: 20px;
-  padding-bottom: 20px;
-   max-width: 100%;
-
-
-}
-@media (min-width: 300px) {
-  .tuit-stat {
-    padding-right: 10px;
-  }
-}
-
-@media (min-width: 980px) {
-  .tuit-stat {
-    padding-left: 70px;
-  }
-}
-
-.tuit-stat-icon {
-  margin-right: 10px;
-
-}
-.liked {
-  color: red;
-}
-
-.tuit-verified-icon {
-  color: #4267B2;
-  margin-left : 5px;
-  margin-right : 5px;
-}
-.delete-button {
-  position: absolute;
-  top: 0;
-  right: 0;
-}
-.message-button{
-border-radius : 40px;
-margin-right : 15px;
-width:100px;}
-.follow-button{
-
-border-radius : 40px;
-width:100px;}
 
 .handle{
 margin-left:7px;
@@ -69,6 +12,24 @@ color : dark-grey;}
 .username-link:hover {
   color: darkblue;
 }
+.card {
+  border: none;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.card-img-top {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.card-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+.profileview{
+width:150px;}
 
 
 

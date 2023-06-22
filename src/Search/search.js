@@ -3,6 +3,7 @@ import {useLocation} from "react-router-dom";
 import Feed from "../Feed/feed";
 import NavigationSidebar from "../nav/index.js";
 import SearchList from "./search-list.js";
+
 import {getAllUsersThunk} from "../services/follow-thunks";
 
 function Search() {
