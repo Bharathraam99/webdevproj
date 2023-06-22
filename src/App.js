@@ -41,105 +41,112 @@ const store = configureStore({
 });
 
 const App = () => {
-  /*const [token, setToken] = useState();
-      if (!token) {
-          return (
-              <div className="login-outdivcard">
-                  <Card setToken={setToken}/>
-              </div>
-          )
-      }*/
-  return (
-    <Provider store={store}>
-      <BrowserRouter>
-        <AuthContext>
-          <Routes>
-            <Route
-              path={"/login"}
-              element={
-                <div>
-                  <Card /*setToken={setToken}*/ />
+    /*const [token, setToken] = useState();
+        if (!token) {
+            return (
+                <div className="login-outdivcard">
+                    <Card setToken={setToken}/>
                 </div>
-              }
-            />
-            <Route
-              path={"/signup"}
-              element={
-                <div>
-                  <Signup />
-                </div>
-              }
-            />
-            <Route
-              path="/"
-              element={
-                  <LandingPage/>
-              }
-            />
-            <Route
-              path="/home/*"
-              element={
-                <ProtectedRoute>
-                  <Home />
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="/post"
-              element={
-                <ProtectedRoute>
-                  <Post />
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="/routine"
-              element={
-                <ProtectedRoute>
-                  <Routine />
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="/search"
-              element={
-                <ProtectedRoute>
-                  <Search />
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="/users"
-              element={
-                <ProtectedRoute>
-                  <Users />
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="/profile"
-              element={
-                <ProtectedRoute>
-                  <Profile />
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="/nav"
-              element={
-                <ProtectedRoute>
-                  <NavigationSidebar />
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="/details/:userId"
-              element={
-                <ProtectedRoute>
-                  <Details />
-                </ProtectedRoute>
-              }
-            />
+            )
+        }*/
+    return (
+        <Provider store={store}>
+            <BrowserRouter>
+                <AuthContext>
+                    <Routes>
+                        <Route
+                            path={"/login"}
+                            element={
+                                <div>
+                                    <Card /*setToken={setToken}*/ />
+                                </div>
+                            }
+                        />
+                        <Route
+                            path={"/signup"}
+                            element={
+                                <div>
+                                    <Signup/>
+                                </div>
+                            }
+                        />
+                        <Route
+                            path="/"
+                            element={
+                                <LandingPage/>
+                            }
+                        />
+                        <Route
+                            path="/home/*"
+                            element={
+                                <ProtectedRoute>
+                                    <Home/>
+                                </ProtectedRoute>
+                            }
+                        />
+                        <Route
+                            path="/post"
+                            element={
+                                <ProtectedRoute>
+                                    <Post/>
+                                </ProtectedRoute>
+                            }
+                        />
+
+                        <Route
+                            path="/postAnon"
+                            element={
+                                <Post/>
+                            }
+                        />
+                        <Route
+                            path="/routine"
+                            element={
+                                <ProtectedRoute>
+                                    <Routine/>
+                                </ProtectedRoute>
+                            }
+                        />
+                        <Route
+                            path="/search"
+                            element={
+                                <ProtectedRoute>
+                                    <Search/>
+                                </ProtectedRoute>
+                            }
+                        />
+                        <Route
+                            path="/users"
+                            element={
+                                <ProtectedRoute>
+                                    <Users/>
+                                </ProtectedRoute>
+                            }
+                        />
+                        <Route
+                            path="/profile"
+                            element={
+                                <ProtectedRoute>
+                                    <Profile/>
+                                </ProtectedRoute>
+                            }
+                        />
+                        <Route
+                            path="/nav"
+                            element={
+                                <ProtectedRoute>
+                                    <NavigationSidebar/>
+                                </ProtectedRoute>
+                            }
+                        />
+                        <Route
+                            path="/details/:userId"
+                            element={
+                                <ProtectedRoute>
+                                    <Details/>
+                                </ProtectedRoute>
+                            }
+                        />
 
                         <Route
                             path={"/newPost"}

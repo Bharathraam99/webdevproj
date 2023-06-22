@@ -20,6 +20,11 @@ export const getPostThunk = createAsyncThunk("post/get", async (token) => {
     return response;
 });
 
+export const getPostThunkWithoutToken = createAsyncThunk("post/get", async () => {
+    const response = await postService.getPostsWithoutToken();
+    return response;
+});
+
 export const likeUpdateThunk = createAsyncThunk("post/like", async ({postId, userId, isLike, token}) => {
     const response = await postService.likeUpdate(postId, userId, isLike, token);
     return response;

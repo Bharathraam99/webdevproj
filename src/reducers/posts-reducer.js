@@ -1,7 +1,8 @@
 import {createSlice} from "@reduxjs/toolkit";
 import posts from '../post-list/posts.json'
 import users from '../TrainerFeed/users.json'
-import {addPostThunk, deletePostThunk, getPostThunk} from "../services/post-thunks";
+import {addPostThunk, deletePostThunk, getPostThunk, getPostThunkWithoutToken} from "../services/post-thunks";
+import {getPostsWithoutToken} from "../services/post-service";
 
 const currentUser = {
     "userId": 1,
@@ -59,8 +60,11 @@ const postsSlice = createSlice({
             console.log("INSIDE GET POST THUNK");
             state.posts = payload.postList;
         },
-        [deletePostThunk.fulfilled]:(state,{payload})=>{
+        [deletePostThunk.fulfilled]: (state, {payload}) => {
             //
+        },
+        [getPostThunkWithoutToken.fulfilled]: (state, {payload}) => {
+            state.posts = payload.postList;
         }
     }
 

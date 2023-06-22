@@ -62,7 +62,7 @@ const PostItem = ({post}) => {
 
                     <div className="col-auto">
                         <div className="tuit-stats-container image-container">
-                            <PostStats key={post.postId} post={post}/>
+                            {currentUser && <PostStats key={post.postId} post={post}/>}
                         </div>
                     </div>
                 </div>

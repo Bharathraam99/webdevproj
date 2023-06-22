@@ -34,6 +34,11 @@ export const getPosts = async (token) => {
     return response.data;
 };
 
+export const getPostsWithoutToken = async () => {
+    const response = await api.get("http://206.189.181.234:8087/no-auth/feed")
+    return response.data;
+};
+
 export const likeUpdate=async (postId, userId, isLike, token)=>{
     const response = await api.post(`${POSTS_URL}/updateLike`, {postId, userId, isLike, token}, {
         headers: {

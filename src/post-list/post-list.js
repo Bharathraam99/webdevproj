@@ -1,8 +1,9 @@
 import React, { useEffect } from "react";
 import PostItem from "./post-item";
 import { useDispatch, useSelector } from "react-redux";
-import { getPostThunk } from "../services/post-thunks";
+import {getPostThunk, getPostThunkWithoutToken} from "../services/post-thunks";
 import "./postList.css";
+import {current} from "@reduxjs/toolkit";
 
 const PostList = () => {
   const { posts } = useSelector((state) => state.posts);
@@ -10,7 +11,15 @@ const PostList = () => {
   const token = useSelector((state) => state.user.token);
 
   useEffect(() => {
-    dispatch(getPostThunk(token));
+    const load=async ()=>{
+      if(token){
+        await dispatch(getPostThunk(token));
+      }else{
+        await dispatch(getPostThunkWithoutToken());
+      }
+    }
+    load();
+
   }, []);
 
   return (
