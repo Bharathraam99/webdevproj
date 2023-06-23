@@ -23,6 +23,9 @@ const allUsers = useSelector(state => state.follow.allUsers);
 
 console.log(allUsers)
       const renderUsersList = (users) => {
+      if (!users) {
+            return null; // Handle the case when users is null
+          }
       return (
       <div className="table-rounded">
     <table className="table">
@@ -37,7 +40,7 @@ console.log(allUsers)
                   <tbody>
                     {users.map((user) => (
                       <tr key={user.userId}>
-                        <td>{user.username}</td>
+                        <td> {user.username}</td>
                         <td>{user.firstName}</td>
                         <td>{user.lastName}</td>
                         <td>
@@ -61,11 +64,11 @@ console.log(allUsers)
             <NavigationSidebar />
           </div>
           <div className="col-1"></div>
-          {currentUser && (
+
           <div className="col-7">
             {renderUsersList(allUsers)}
           </div>
-          )}
+
         </div>
       </div>
     </>
