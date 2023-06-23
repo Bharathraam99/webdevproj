@@ -36,7 +36,7 @@ const [showRoutines, setShowRoutines] = useState(true);
               <div className="routine-header">
                           <h1>MY ROUTINE</h1>
                           <button onClick={() => handleDelete(0)} className="del rounded-pill btn btn-primary mt-2 ps-3 pe-3 fw-bold">
-                            Delete
+                            Request New Routine
                           </button>
                         </div>
 
@@ -52,23 +52,14 @@ const [showRoutines, setShowRoutines] = useState(true);
                        checked={todo.completed}
                        className="me-2 float-start"
                      />
-
-
-
-
                                  <span>{todo.title}</span>
                                   </li>
                  ))}
                </ul>
  ) : (
  <div className="no-routines">
-               <h4 className="h4">You have no routines for now.</h4>
-               <button
-                 onClick={handleRequestRoutine}
-                 className="rounded-pill btn btn-primary mt-2 ps-3 pe-3 fw-bold"
-               >
-                 Request Routine
-               </button>
+               <h4 className="h4">Your request is pending.</h4>
+
              </div>
            )}
 
