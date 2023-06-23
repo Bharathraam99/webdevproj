@@ -61,9 +61,11 @@ console.log(allUsers)
             <NavigationSidebar />
           </div>
           <div className="col-1"></div>
+          {currentUser && (
           <div className="col-7">
             {renderUsersList(allUsers)}
           </div>
+          )}
         </div>
       </div>
     </>
