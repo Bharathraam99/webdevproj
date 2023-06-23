@@ -22,7 +22,6 @@ const PostItem = ({ post }) => {
         <div className="row tempd">
           <div className="col-auto">
             <img
-              width={50}
               className="float-end rounded-circle rounded-image"
               src={require(`../images/default.jpg`)}
               height={48}
@@ -34,7 +33,7 @@ const PostItem = ({ post }) => {
               <span className="fw-bolder">{post.postUserName}</span>
               <AiFillCheckCircle className="tuit-verified-icon" />
               <span className="text-muted">
-                {post.postUserName} . {post.time}
+                @{post.postUserName}  {post.time}
               </span>
             </div>
             <div>{post.postBody}</div>

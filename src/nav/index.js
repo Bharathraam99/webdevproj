@@ -49,23 +49,10 @@ const NavigationSidebar = () => {
             alignItems: "center",
           }}
         >
-          <i className="fa-solid fa-dumbbell"></i>
+          <i className="fa-solid fa-dumbbell dumbbell"></i>
         </span>
       </Link>
-      {/* {links.map((link) => (
-        <Link
-          to={`/tuiter/${link}`}
-          className={`list-group-item text-capitalize ${
-            active === link ? "active" : ""
-          }`}
-          key={link}
-        >
-          <span className="wd-icon">
-            <i className={icons[link]}></i>
-          </span>
-          <span className="wd-text">{link}</span>
-        </Link>
-      ))} */}
+
 
       {!currentUser && (
         <Link

@@ -37,7 +37,7 @@ function Feed() {
             <div className="col-12 col-md-11 position-relative">
               <input
                 placeholder="Search"
-                className="form-control rounded-pill ps-5"
+                className="form-control rounded-pill pe-5 ps-5"
                 onKeyDown={handleSearch}
               />
               <AiOutlineSearch className="fs-3 position-absolute wd-nudge-up" />

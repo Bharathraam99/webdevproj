@@ -35,7 +35,9 @@ const PostStats = ({ post }) => {
   return (
     <div className="tuit-stats">
       <div className="tuit-stat">
-        <BsChatSquare className="tuit-stat-icon" />
+        {currentUser ? (<BsChatSquare className="tuit-stat-icon" />) :(<BsChatSquare className="tuit-stat-icon" onClick={() => {
+                                                                                                                                        navigate("/login");
+                                                                                                                                      }}/>)}
         <span className="tuit-stat-count">{post.retuits}</span>
       </div>
       {currentUser ? (
@@ -78,15 +80,21 @@ const PostStats = ({ post }) => {
       )}
 
       <div className="tuit-stat">
-        <BsArrowRepeat className="tuit-stat-icon" />
+        {currentUser ? (<BsArrowRepeat className="tuit-stat-icon" />) :(<BsArrowRepeat className="tuit-stat-icon" onClick={() => {
+                                                                                                                                navigate("/login");
+                                                                                                                              }}/>)}
         <span className="tuit-stat-count">{post.replies}</span>
       </div>
       <div className="tuit-stat">
-        <FaThumbsDown className="tuit-stat-icon" />
+        {currentUser ? (<FaThumbsDown className="tuit-stat-icon" />) :(<FaThumbsDown className="tuit-stat-icon" onClick={() => {
+                                                                                                                                        navigate("/login");
+                                                                                                                                      }}/>)}
         <span className="tuit-stat-count"> {post.dislikes}</span>
       </div>
       <div className="tuit-stat">
-        <BsShare className="tuit-stat-icon" />
+        {currentUser ? (<BsShare className="tuit-stat-icon" />) :(<BsShare className="tuit-stat-icon" onClick={() => {
+                                                                                                                                        navigate("/login");
+                                                                                                                                      }}/>)}
       </div>
     </div>
   );

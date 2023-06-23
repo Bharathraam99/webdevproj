@@ -26,11 +26,11 @@ const TrainerRequestPage = () => {
     <div style={{ backgroundColor: "#f2f2f2" }}>
       <Feed />
       <div className="row">
-        <div className="col-lg-2 col-md-3 col-sm-4 wd-nav">
+        <div className="col-2 wd-nav">
           <NavigationSidebar />
         </div>
         <div className="col-lg-1 col-md-1 col-sm-1"></div>
-        <div className="col-lg-6 col-md-8 col-sm-7">
+        <div className="col-lg-6 col-md-8 col-sm-7 col-6">
           <h2 className="mb-4">Pending Requests</h2>
           {profiles.map((profile, index) => (
             <div key={index} className="card mb-3">

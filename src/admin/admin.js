@@ -27,7 +27,6 @@ console.log(allUsers)
             return null; // Handle the case when users is null
           }
       return (
-      <div className="table-rounded">
     <table className="table">
                   <thead>
                     <tr>
@@ -44,14 +43,17 @@ console.log(allUsers)
                         <td>{user.firstName}</td>
                         <td>{user.lastName}</td>
                         <td>
-                          <button className="btn btn-primary rounded-pill mt-2 ps-3 pe-3 btn-sm edit">Edit</button>{" "}
-                          <button className="btn btn-danger rounded-pill mt-2 ps-3 pe-3 btn-sm edit">Delete</button>
+                        <div className="button-container">
+                          <button className="btn btn-primary rounded-pill mt-2 px-2 py-1 btn-sm edit">Edit</button>
+                          <button className="btn btn-danger rounded-pill mt-2 px-2 py-1 btn-sm delete">Delete</button>
+                          </div>
                         </td>
+
                       </tr>
                     ))}
                   </tbody>
                 </table>
-                </div>
+
                 );
                 }
     console.log(allUsers)
@@ -60,14 +62,13 @@ console.log(allUsers)
       <div style={{ backgroundColor: "#f2f2f2" }}>
         <Feed />
         <div className="row">
-          <div className="col-2 wd-nav">
-            <NavigationSidebar />
-          </div>
-          <div className="col-1"></div>
-
-          <div className="col-7">
-            {renderUsersList(allUsers)}
-          </div>
+         <div className="col-2 wd-nav">
+                     <NavigationSidebar />
+                   </div>
+                   <div className="col-1"></div>
+                   <div className="col-7">
+                     {renderUsersList(allUsers)}
+                   </div>
 
         </div>
       </div>
