@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import NavigationSidebar from "./nav";
 import Feed from "./Feed/feed.js";
+
 const Card = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -25,11 +26,11 @@ const Card = () => {
     <div style={{ backgroundColor: "#f2f2f2" }}>
       <Feed />
       <div className="row">
-        <div className="col-2 wd-nav">
+        <div className="col-lg-2 col-md-3 col-sm-12 wd-nav">
           <NavigationSidebar />
         </div>
-        <div className="col-1"></div>
-        <div className="col-6">
+        <div className="col-lg-1"></div>
+        <div className="col-lg-6 col-md-9 col-sm-12">
           <div className="login-innerCard">
             <h1>Welcome to our Fitness app</h1>
             <input

@@ -26,15 +26,15 @@ const TrainerRequestPage = () => {
     <div style={{ backgroundColor: "#f2f2f2" }}>
       <Feed />
       <div className="row">
-        <div className="col-2 wd-nav">
+        <div className="col-lg-2 col-md-3 col-sm-4 wd-nav">
           <NavigationSidebar />
         </div>
-        <div className="col-1"></div>
-        <div className="col-6">
+        <div className="col-lg-1 col-md-1 col-sm-1"></div>
+        <div className="col-lg-6 col-md-8 col-sm-7">
           <h2 className="mb-4">Pending Requests</h2>
           {profiles.map((profile, index) => (
             <div key={index} className="card mb-3">
-              <div className="card-body d-flex justify-content-between align-items-center">
+              <div className="card-body d-flex flex-wrap justify-content-between align-items-center">
                 <div className="d-flex align-items-center">
                   <img
                     src={profile.profilePicture}
@@ -50,7 +50,7 @@ const TrainerRequestPage = () => {
                   </div>
                 </div>
                 <button
-                  className="btn btn-primary"
+                  className="btn btn-primary mt-3 mt-sm-0"
                   onClick={() => navigate("/routineassign")}
                 >
                   Assign Routine

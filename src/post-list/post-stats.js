@@ -10,11 +10,13 @@ import "./index.css";
 import { FaThumbsDown } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import { getPostThunk, likeUpdateThunk } from "../services/post-thunks";
+import { useNavigate } from "react-router";
 
 const PostStats = ({ post }) => {
   useEffect(() => {
     console.log("Hello" + post.upvoteCount);
   }, []);
+  const navigate = useNavigate();
 
   const dispatch = useDispatch();
   const { currentUser } = useSelector((state) => state.user);
@@ -36,8 +38,7 @@ const PostStats = ({ post }) => {
         <BsChatSquare className="tuit-stat-icon" />
         <span className="tuit-stat-count">{post.retuits}</span>
       </div>
-
-      {currentUser && (
+      {currentUser ? (
         <div className="tuit-stat">
           {post.upvoteByCurrentUser ? (
             <BsHeartFill
@@ -64,7 +65,18 @@ const PostStats = ({ post }) => {
           )}
           <span className="tuit-stat-count">{post.upvoteCount}</span>
         </div>
+      ) : (
+        <div className="tuit-stat">
+          <BsHeart
+            className="tuit-stat-icon"
+            onClick={() => {
+              navigate("/login");
+            }}
+          />
+          <span className="tuit-stat-count">{post.upvoteCount}</span>
+        </div>
       )}
+
       <div className="tuit-stat">
         <BsArrowRepeat className="tuit-stat-icon" />
         <span className="tuit-stat-count">{post.replies}</span>

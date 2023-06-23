@@ -6,6 +6,7 @@ import { registerThunk } from "../services/auth-thunks";
 import { useNavigate } from "react-router";
 import NavigationSidebar from "../nav/index.js";
 import Feed from "../Feed/feed.js";
+
 const Signup = () => {
   let [username, setUsername] = useState("");
   let [password, setPassword] = useState("");
@@ -83,11 +84,11 @@ const Signup = () => {
     <div style={{ backgroundColor: "#f2f2f2" }}>
       <Feed />
       <div className="row">
-        <div className="col-2 wd-nav">
+        <div className="col-lg-3 col-xl-2 wd-nav">
           <NavigationSidebar />
         </div>
-        <div className="col-1"></div>
-        <div className="col-6">
+        <div className="col-lg-1"></div>
+        <div className="col-lg-8 col-xl-6">
           <div className="login-innerCard">
             <h1>Signup</h1>
             <input
@@ -102,15 +103,6 @@ const Signup = () => {
               placeholder="Password"
               onChange={(event) => setPassword(event.target.value)}
             />
-            {/* <select
-        value={gender}
-        onChange={(event) => setGender(event.target.value)}
-      >
-        <option value="">Select Gender</option>
-        <option value="male">Male</option>
-        <option value="female">Female</option>
-        <option value="other">Other</option>
-      </select> */}
             <input
               value={firstname}
               type="text"

@@ -28,10 +28,13 @@ function Feed() {
 
   return (
     <>
-      <div className="feed-page" style={{ backgroundColor: "#8AC7DB" }}>
+      <div
+        className="container-fluid feed-page"
+        style={{ backgroundColor: "#8AC7DB" }}
+      >
         <div className="row">
           {currentUser && (
-            <div className="col-11 position-relative">
+            <div className="col-12 col-md-11 position-relative">
               <input
                 placeholder="Search"
                 className="form-control rounded-pill ps-5"
@@ -40,70 +43,72 @@ function Feed() {
               <AiOutlineSearch className="fs-3 position-absolute wd-nudge-up" />
             </div>
           )}
-          <div className="col-1"></div>
+          <div className="col-12 col-md-1"></div>
         </div>
-        <ul className="nav nav-pills mb-2 mt-2 wd">
-          <li className="nav-item">
-                    <NavLink
-                      to="/admin"
-                      className="nav-link"
-                      activeClassName="active"
-                      onClick={() => handleTabClick("admin")}
-                    >
-                      Admin Dashboard
-                    </NavLink>
-                  </li>
-          <li className="nav-item">
-            <NavLink
-              to={token ? "/post" : "/postAnon"}
-              className="nav-link"
-              activeClassName="active"
-              onClick={() => handleTabClick("feed")}
-            >
-              Feed
-            </NavLink>
-          </li>
-          <li className="nav-item">
-            <NavLink
-              to="/profile"
-              className="nav-link"
-              activeClassName="active"
-              onClick={() => handleTabClick("profile")}
-            >
-              Profile
-            </NavLink>
-          </li>
-          <li className="nav-item">
-            <NavLink
-              to="/routine"
-              className="nav-link"
-              activeClassName="active"
-              onClick={() => handleTabClick("routine")}
-            >
-              Routine
-            </NavLink>
-          </li>
-          <li className="nav-item">
-            <NavLink
-              to="/users"
-              className="nav-link"
-              activeClassName="active"
-              onClick={() => handleTabClick("users")}
-            >
-              Users
-            </NavLink>
-          </li>
-          <li className="nav-item">
-            <NavLink
-              to="/trainerrequest"
-              className="nav-link"
-              activeClassName="active"
-              onClick={() => handleTabClick("trainerrequest")}
-            >
-              Assign Routine
-            </NavLink>
-          </li>
-        </ul>
+        <div className="scrollable-navbar">
+          <ul className="nav nav-pills mb-2 mt-2 wd flex-nowrap">
+            <li className="nav-item">
+              <NavLink
+                to="/admin"
+                className="nav-link"
+                activeClassName="active"
+                onClick={() => handleTabClick("admin")}
+              >
+                Admin Dashboard
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink
+                to={token ? "/post" : "/postAnon"}
+                className="nav-link"
+                activeClassName="active"
+                onClick={() => handleTabClick("feed")}
+              >
+                Feed
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink
+                to="/profile"
+                className="nav-link"
+                activeClassName="active"
+                onClick={() => handleTabClick("profile")}
+              >
+                Profile
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink
+                to="/routine"
+                className="nav-link"
+                activeClassName="active"
+                onClick={() => handleTabClick("routine")}
+              >
+                Routine
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink
+                to="/users"
+                className="nav-link"
+                activeClassName="active"
+                onClick={() => handleTabClick("users")}
+              >
+                Users
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink
+                to="/trainerrequest"
+                className="nav-link"
+                activeClassName="active"
+                onClick={() => handleTabClick("trainerrequest")}
+              >
+                Assign Routine
+              </NavLink>
+            </li>
+          </ul>
+        </div>
         <div className="position-relative mb-2"></div>
       </div>
     </>

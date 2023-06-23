@@ -56,3 +56,8 @@ input[placeholder] {
 .nameinput:hover {
   outline: none;
 }
+@media (max-width: 767px) {
+  .login-innerCard {
+    max-width: 350px;
+  }
+}

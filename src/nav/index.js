@@ -76,7 +76,9 @@ const NavigationSidebar = () => {
           onClick={handleLinkClick}
         >
           <FontAwesomeIcon className="pe-2" icon={faSignIn} />
-          <span className="d-none d-xl-inline">{"login"}</span>
+          <span className="d-none d-xl-inline d-none d-lg-inline-block">
+            {"login"}
+          </span>
         </Link>
       )}
       {!currentUser && (
@@ -88,7 +90,9 @@ const NavigationSidebar = () => {
           onClick={handleLinkClick}
         >
           <FontAwesomeIcon className="pe-2" icon={faUserPlus} />
-          <span className="d-none d-xl-inline">{"register"}</span>
+          <span className="d-none d-xl-inline d-none d-lg-inline-block">
+            {"register"}
+          </span>
         </Link>
       )}
       {currentUser && (
@@ -99,7 +103,9 @@ const NavigationSidebar = () => {
           to="/profile"
         >
           <FontAwesomeIcon className="pe-2" icon={faUser} />
-          <span className="d-none d-xl-inline">{"profile"}</span>
+          <span className="d-none d-xl-inline d-none d-lg-inline-block">
+            {"profile"}
+          </span>
         </Link>
       )}
 
@@ -112,7 +118,9 @@ const NavigationSidebar = () => {
           onClick={handleLogout}
         >
           <FontAwesomeIcon className="pe-2" icon={faSignOut} />
-          <span className="d-none d-xl-inline">{"Logout"}</span>
+          <span className="d-none d-xl-inline d-none d-lg-inline-block">
+            {"Logout"}
+          </span>
         </Link>
       )}
 
