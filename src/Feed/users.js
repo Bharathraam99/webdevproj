@@ -38,7 +38,7 @@ const Users = () => {
       { id: 1, name: "John Doe", picture: "../images/john.jpg" },
       { id: 2, name: "John Doe", picture: "../images/john.jpg" },
       { id: 3, name: "John Doe", picture: "../images/john.jpg" },
-      { id: 4, name: "John Doe", picture: "../images/john.jpg" },
+      { id: 4, name: "John Doe", picture: "../images/john.jpg" }
     ];*/
 
     /*const following = [

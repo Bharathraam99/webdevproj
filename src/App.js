@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import Card from "./card";
 import Home from "./home";
 import Routine from "./routine-page/routine";
+import Admin from "./admin/admin";
 import Profile from "./Feed/profile";
 import Users from "./Feed/users";
 import { BrowserRouter } from "react-router-dom";
@@ -106,6 +107,7 @@ const App = () => {
                 </ProtectedRoute>
               }
             />
+
             <Route
               path="/users"
               element={
@@ -114,6 +116,14 @@ const App = () => {
                 </ProtectedRoute>
               }
             />
+              <Route
+                                      path="/admin"
+                                      element={
+                                        <ProtectedRoute>
+                                          <Admin />
+                                        </ProtectedRoute>
+                                      }
+                                    />
             <Route
               path="/profile"
               element={

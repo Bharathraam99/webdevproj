@@ -44,6 +44,16 @@ function Feed() {
         </div>
         <ul className="nav nav-pills mb-2 mt-2 wd">
           <li className="nav-item">
+                    <NavLink
+                      to="/admin"
+                      className="nav-link"
+                      activeClassName="active"
+                      onClick={() => handleTabClick("admin")}
+                    >
+                      Admin Dashboard
+                    </NavLink>
+                  </li>
+          <li className="nav-item">
             <NavLink
               to={token ? "/post" : "/postAnon"}
               className="nav-link"
