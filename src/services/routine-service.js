@@ -15,3 +15,12 @@ export const getWorkouts = async (token) => {
     })
     return response.data;
 };
+
+export const requestRoutine = async (token) => {
+    const response = await api.post(`${POSTS_URL}/request`, null, {
+        headers: {
+            'Authorization': `Bearer ${token}`
+        }
+    });
+    return response.data;
+};

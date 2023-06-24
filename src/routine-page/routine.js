@@ -3,7 +3,7 @@ import Feed from "../Feed/feed";
 import "./index.css";
 import NavigationSidebar from "../nav/index.js";
 import {useDispatch, useSelector} from "react-redux";
-import {getRoutineThunk} from "../services/routine-thunks";
+import {getRoutineThunk, requestRoutineThunk} from "../services/routine-thunks";
 
 const Routine = () => {
     const todos = useSelector(state => state.routine.routines);
@@ -18,8 +18,9 @@ const Routine = () => {
     }, [])
 
 
-    const handleRequestRoutine = () => {
-
+    const handleRequestRoutine = async () => {
+        await dispatch(requestRoutineThunk(token));
+        await dispatch(getRoutineThunk(token));
     };
 
     return (
@@ -45,7 +46,7 @@ const Routine = () => {
                     </div>
 
 
-                    {todos.length!==0 ? (
+                    {todos.length !== 0 ? (
                         <table className="table table-striped table-bordered rounded">
                             <thead>
                             <tr>
