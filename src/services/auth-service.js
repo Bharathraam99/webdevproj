@@ -67,7 +67,7 @@ export const logout = async () => {
 
 export const updateUser = async (user, token) => {
 
-    const response = await api.post(`${USERS_URL}register`, user, {
+    const response = await api.post("http://206.189.181.234:8087/home/update-profile", user, {
         headers: {
             'Authorization': `Bearer ${token}`
         }
