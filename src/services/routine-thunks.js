@@ -13,11 +13,15 @@ export const getRoutineRequestsThunk = createAsyncThunk("routineRequests/get", a
 });
 
 
-
 export const requestRoutineThunk = createAsyncThunk(
     "request/add", async (token) => {
         const response = await routineService.requestRoutine(token);
         return response;
     }
 );
+
+export const assignWorkoutThunk = createAsyncThunk("assignWorkout/post", async ({token, workouts}) => {
+    const response = await routineService.assignWorkout(token, workouts);
+    return response;
+});
 

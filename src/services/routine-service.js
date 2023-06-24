@@ -33,3 +33,12 @@ export const requestRoutine = async (token) => {
     });
     return response.data;
 };
+
+export const assignWorkout = async (token, workouts) => {
+    const response = await api.post("http://206.189.181.234:8087/trainer/create-routine", workouts, {
+        headers: {
+            'Authorization': `Bearer ${token}`
+        }
+    });
+    return response.data;
+}

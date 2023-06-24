@@ -1,5 +1,5 @@
 import {createSlice} from "@reduxjs/toolkit";
-import {getRoutineRequestsThunk, getRoutineThunk} from "../services/routine-thunks";
+import {assignWorkoutThunk, getRoutineRequestsThunk, getRoutineThunk} from "../services/routine-thunks";
 import {getWorkoutsRequest} from "../services/routine-service";
 
 const routinesSlice = createSlice({
@@ -15,6 +15,9 @@ const routinesSlice = createSlice({
         },
         [getRoutineRequestsThunk.fulfilled]: (state, {payload}) => {
             state.requests = payload;
+        },
+        [assignWorkoutThunk.fulfilled]:(state,{payload})=>{
+            alert("Successfully assigned the workout");
         }
     }
 
