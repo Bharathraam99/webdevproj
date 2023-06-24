@@ -4,7 +4,8 @@ import {loginThunk, logoutThunk, profileThunk, registerThunk, updateUserThunk} f
 
 const initialState = {
     currentUser: null,
-    token: null
+    token: null,
+    role: "UNASSIGNED"
 }
 
 const authSlice = createSlice({
@@ -14,6 +15,7 @@ const authSlice = createSlice({
     extraReducers: {
         [loginThunk.fulfilled]: (state, {payload}) => {
             state.token = payload.jwtToken;
+            state.role=payload.role;
         },
         [loginThunk.rejected]: (state, {payload}) => {
             throw new Error("Wrong Credentials Enter. Please try again")
