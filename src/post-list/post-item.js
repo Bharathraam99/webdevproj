@@ -23,7 +23,7 @@ const PostItem = ({ post }) => {
           <div className="col-auto">
             <img
               className="float-end rounded-circle rounded-image"
-              src={require(`../images/default.jpg`)}
+              src={post.postProfilePicUrl}
               height={48}
               width={48}
             />
