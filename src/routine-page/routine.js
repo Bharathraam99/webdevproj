@@ -41,7 +41,7 @@ const Routine = () => {
                             onClick={() => handleRequestRoutine(0)}
                             className="del rounded-pill btn btn-primary mt-2 ps-3 pe-3 fw-bold"
                         >
-                            Request New Routine
+                            Request Routine
                         </button>
                     </div>
 

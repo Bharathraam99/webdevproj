@@ -24,6 +24,7 @@ import AuthContext from "./auth-context";
 import ProtectedRoute from "./protected-route";
 import Post from "./Feed/post";
 import Search from "./Search/search";
+import SearchApi from "./Search/searchapi";
 import Signup from "./credential/signup.js";
 import NewPost from "./new-post";
 import Feed from "./Feed/feed";
@@ -167,6 +168,14 @@ const App = () => {
                                 </ProtectedRoute>
                             }
                         />
+                        <Route
+                                                    path={"/searchapi"}
+                                                    element={
+                                                        <ProtectedRoute>
+                                                            <SearchApi/>
+                                                        </ProtectedRoute>
+                                                    }
+                                                />
                         <Route
                             path={"/routineassign/:userId"}
                             element={

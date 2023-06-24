@@ -107,7 +107,16 @@ console.log(role)
                 Users
               </NavLink>
             </li>
-
+            <li className="nav-item">
+              <NavLink
+                to="/searchapi"
+                className="nav-link"
+                activeClassName="active"
+                onClick={() => handleTabClick("searchapi")}
+              >
+               Search Workout
+              </NavLink>
+            </li>
             <li className="nav-item">
               <NavLink
                 to="/trainerrequest"
