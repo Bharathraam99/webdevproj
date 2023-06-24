@@ -7,7 +7,6 @@ import {assignWorkoutThunk} from "../services/routine-thunks";
 import {useParams} from "react-router-dom";
 
 const Trainerroutineassign = () => {
-    const {currentUser} = useSelector((state) => state.user);
     const {token} = useSelector((state) => state.user);
     const { userId } = useParams();
     const [workoutText, setWorkoutText] = useState("");
