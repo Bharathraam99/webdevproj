@@ -12,16 +12,20 @@ const TrainerRequestPage = () => {
       username: "John Doe",
       height: "6'0''",
       weight: "180 lbs",
+      userId :"1"
     },
     {
       profilePicture: "../images/john.jpg",
       username: "Jane Smith",
       height: "5'7''",
       weight: "150 lbs",
+      userId:"2"
     },
     // Add more profiles as needed
   ];
-
+  const handleAssignRoutine = (userId) => {
+    navigate(`/routineassign/${userId}`);
+  };
   return (
     <div style={{ backgroundColor: "#f2f2f2" }}>
       <Feed />
@@ -51,7 +55,7 @@ const TrainerRequestPage = () => {
                 </div>
                 <button
                   className="btn btn-primary mt-3 mt-sm-0"
-                  onClick={() => navigate("/routineassign")}
+                   onClick={() => handleAssignRoutine(profile.userId)}
                 >
                   Assign Routine
                 </button>

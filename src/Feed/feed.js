@@ -8,9 +8,10 @@ import { GoGear } from "react-icons/go";
 import Post from "./post";
 
 function Feed() {
-  const { currentUser } = useSelector((state) => state.user);
+  const { currentUser } = useSelector((state) => state.user) ;
+  console.log(currentUser)
   const { token } = useSelector((state) => state.user);
-
+const role = "ANON";
   const dispatch = useDispatch();
   console.log(currentUser);
   const [activeTab, setActiveTab] = useState("feed");
@@ -24,8 +25,11 @@ function Feed() {
       const searchQuery = e.target.value;
       navigate(`/search?query=${searchQuery}`);
     }
-  };
-
+};
+if(currentUser!=null){
+const role = currentUser.user.role;
+}
+console.log(role)
   return (
     <>
       <div
@@ -47,6 +51,7 @@ function Feed() {
         </div>
         <div className="scrollable-navbar">
           <ul className="nav nav-pills mb-2 mt-2 wd flex-nowrap">
+
             <li className="nav-item">
               <NavLink
                 to="/admin"
@@ -57,6 +62,7 @@ function Feed() {
                 Admin Dashboard
               </NavLink>
             </li>
+
             <li className="nav-item">
               <NavLink
                 to={token ? "/post" : "/postAnon"}
@@ -67,6 +73,7 @@ function Feed() {
                 Feed
               </NavLink>
             </li>
+
             <li className="nav-item">
               <NavLink
                 to="/profile"
@@ -77,6 +84,7 @@ function Feed() {
                 Profile
               </NavLink>
             </li>
+
             <li className="nav-item">
               <NavLink
                 to="/routine"
@@ -87,6 +95,8 @@ function Feed() {
                 Routine
               </NavLink>
             </li>
+
+
             <li className="nav-item">
               <NavLink
                 to="/users"
@@ -97,6 +107,7 @@ function Feed() {
                 Users
               </NavLink>
             </li>
+
             <li className="nav-item">
               <NavLink
                 to="/trainerrequest"
@@ -107,6 +118,7 @@ function Feed() {
                 Assign Routine
               </NavLink>
             </li>
+
           </ul>
         </div>
         <div className="position-relative mb-2"></div>

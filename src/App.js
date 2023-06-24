@@ -167,7 +167,7 @@ const App = () => {
               }
             />
             <Route
-              path={"/routineassign"}
+              path={"/routineassign/:userId"}
               element={
                 <ProtectedRoute>
                   <Trainerroutineassign />

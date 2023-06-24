@@ -5,6 +5,9 @@ import Feed from "../Feed/feed";
 const Trainerroutineassign = () => {
   const [workoutType, setWorkoutType] = useState("");
   const [workoutText, setWorkoutText] = useState("");
+  const [descriptionText, setdescriptionText] = useState("");
+  const [setText, setsetText] = useState("");
+   const [repText, setrepText] = useState("");
   const [workouts, setWorkouts] = useState([]);
 
   const handleWorkoutTypeChange = (e) => {
@@ -15,16 +18,30 @@ const Trainerroutineassign = () => {
     setWorkoutText(e.target.value);
   };
 
+ const handleSetChange = (e) => {
+    setsetText(e.target.value);
+  };
+   const handleDescriptionChange = (e) => {
+      setdescriptionText(e.target.value);
+    };
+     const handleRepChange = (e) => {
+        setrepText(e.target.value);
+      };
   const handleAddWorkout = () => {
     if (workoutType && workoutText) {
       const newWorkout = {
         id: Date.now(),
         type: workoutType,
         text: workoutText,
+        description :descriptionText,
+        set :setText,
+        rep :repText,
       };
       setWorkouts([...workouts, newWorkout]);
-      setWorkoutType("");
+      setdescriptionText("");
       setWorkoutText("");
+       setsetText("");
+        setrepText("");
     }
   };
 
@@ -44,23 +61,34 @@ const Trainerroutineassign = () => {
         <div className="col-6">
           <h4 className="mb-4">Assign Routines</h4>
           <div className="mb-3">
-            <select
-              className="form-select"
-              value={workoutType}
-              onChange={handleWorkoutTypeChange}
-            >
-              <option value="">Select Workout Type</option>
-              <option value="Cardio">Cardio</option>
-              <option value="Strength Training">Strength Training</option>
-              <option value="Yoga">Yoga</option>
-            </select>
+            <input
+                          type="text"
+                          className="form-control mt-2"
+                          placeholder="Enter Workout"
+                          value={workoutText}
+                          onChange={handleWorkoutTextChange}
+                        />
             <input
               type="text"
               className="form-control mt-2"
-              placeholder="Enter Workout"
-              value={workoutText}
-              onChange={handleWorkoutTextChange}
+              placeholder="Description"
+              value={descriptionText}
+              onChange={handleDescriptionChange}
             />
+            <input
+                          type="text"
+                          className="form-control mt-2"
+                          placeholder="Sets"
+                          value={setText}
+                          onChange={handleSetChange}
+                        />
+                        <input
+                                      type="text"
+                                      className="form-control mt-2"
+                                      placeholder="Reps"
+                                      value={repText}
+                                      onChange={handleRepChange}
+                                    />
             <div className="d-flex justify-content-center mt-2">
               <button className="btn btn-primary" onClick={handleAddWorkout}>
                 Add
