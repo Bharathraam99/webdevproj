@@ -49,6 +49,8 @@ const Trainerroutineassign = () => {
     const updatedWorkouts = workouts.filter((workout) => workout.id !== id);
     setWorkouts(updatedWorkouts);
   };
+const handleSubmitWorkout = () => {
+}
 
   return (
     <div style={{ backgroundColor: "#f2f2f2" }}>
@@ -59,7 +61,7 @@ const Trainerroutineassign = () => {
         </div>
         <div className="col-1"></div>
         <div className="col-6">
-          <h4 className="mb-4">Assign Routines</h4>
+          <h4 className="mb-4">ASSIGN ROUTINES</h4>
           <div className="mb-3">
             <input
                           type="text"
@@ -90,9 +92,14 @@ const Trainerroutineassign = () => {
                                       onChange={handleRepChange}
                                     />
             <div className="d-flex justify-content-center mt-2">
-              <button className="btn btn-primary" onClick={handleAddWorkout}>
+              <button className="btn btn-primary mt-2" onClick={handleAddWorkout}>
                 Add
               </button>
+              <span style={{ marginRight: "20px" }}></span>
+
+              <button className="btn btn-primary mt-2" onClick={handleSubmitWorkout}>
+                             Submit
+                            </button>
             </div>
           </div>
           {workouts.length > 0 && (
