@@ -70,6 +70,7 @@
   height: 50px; /* Adjust the maximum width as needed */
 }
 .searchback{
+margin-left:0px;
 width:100px;
 }
 .suggestions{
