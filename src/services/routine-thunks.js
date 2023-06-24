@@ -7,9 +7,17 @@ export const getRoutineThunk = createAsyncThunk("routine/get", async (token) => 
     return response;
 });
 
+export const getRoutineRequestsThunk = createAsyncThunk("routineRequests/get", async (token) => {
+    const response = await routineService.getWorkoutsRequest(token);
+    return response;
+});
+
+
+
 export const requestRoutineThunk = createAsyncThunk(
     "request/add", async (token) => {
         const response = await routineService.requestRoutine(token);
         return response;
     }
 );
+
