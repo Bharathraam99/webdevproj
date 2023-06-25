@@ -87,5 +87,13 @@ export const deleteUser=async (userId,token)=>{
     return response.data;
 }
 
+export const getTrainerRequests=async (token)=>{
+    const response = await api.get("http://206.189.181.234:8087/admin/trainers",{
+        headers: {
+            'Authorization': `Bearer ${token}`
+        }
+    })
+    return response.data;
+}
 
 

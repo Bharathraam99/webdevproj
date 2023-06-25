@@ -5,7 +5,8 @@ import "./index.css";
 import {getAllUsersThunk} from "../services/follow-thunks";
 import {useDispatch, useSelector} from "react-redux";
 import {useNavigate} from "react-router-dom";
-import {deleteUserThunk, updateUserThunk} from "../services/auth-thunks";
+import {deleteUserThunk, getTrainerRequestThunk, updateUserThunk} from "../services/auth-thunks";
+
 
 // UserTable component
 const UserTable = ({users, editUsers, handleEdit, handleSave, handleDelete, handleInputChange}) => {
@@ -113,28 +114,32 @@ const UserTable = ({users, editUsers, handleEdit, handleSave, handleDelete, hand
 
 // TrainerTable component
 
-const TrainerTable = () => {
+const TrainerTable = ({requests}) => {
+
     return (
-        <table className="table table-bordered">
-            <thead>
-            <tr>
+        <>
+            {JSON.stringify(requests)};
+            <table className="table table-bordered">
+                <thead>
+                <tr>
 
-                <th>First Name</th>
-                <th>Last Name</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
 
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <td>
-                    give first name here
-                </td>
-                <td>
-                    give last name here
-                </td>
-            </tr>
-            </tbody>
-        </table>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>
+                        give first name here
+                    </td>
+                    <td>
+                        give last name here
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </>
     );
 };
 
@@ -143,13 +148,15 @@ const Admin = () => {
     const {currentUser} = useSelector((state) => state.user);
     const allUsers = useSelector((state) => state.follow.allUsers);
     const allTrainers = useSelector((state) => state.follow.allTrainers);
-    const token = useSelector((state) => state.user.token);
     const dispatch = useDispatch();
     const navigate = useNavigate();
+    const token = useSelector((state) => state.user.token);
+    const [requests, setRequests] = useState([]);
 
     useEffect(() => {
         const load = async () => {
             await dispatch(getAllUsersThunk(token));
+            await dispatch(getTrainerRequestThunk(token));
         };
         load();
     }, []);
@@ -181,17 +188,17 @@ const Admin = () => {
             if (editedUser.firstName) {
                 user = {"firstName": editedUser.firstName, ...user};
             }
-            if(editedUser.lastName){
-                user={"lastName":editedUser.lastName,...user};
+            if (editedUser.lastName) {
+                user = {"lastName": editedUser.lastName, ...user};
             }
-            if(editedUser.height){
-                user={"height":editedUser.height,...user};
+            if (editedUser.height) {
+                user = {"height": editedUser.height, ...user};
             }
-            if(editedUser.weight){
-                user={"weight":editedUser.weight,...user};
+            if (editedUser.weight) {
+                user = {"weight": editedUser.weight, ...user};
             }
 
-            await dispatch(updateUserThunk({user,token}));
+            await dispatch(updateUserThunk({user, token}));
             await dispatch(getAllUsersThunk(token));
             setEditUsers((prevUsers) => ({
                 ...prevUsers,
@@ -274,7 +281,7 @@ const Admin = () => {
                         )}
                         {activeTab === "trainers" && (
                             <TrainerTable
-
+                                requests={requests}
                             />
                         )}
                     </div>

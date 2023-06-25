@@ -113,9 +113,7 @@ const App = () => {
                         <Route
                             path="/users"
                             element={
-                                <ProtectedRoute>
-                                    <Users/>
-                                </ProtectedRoute>
+                                <Users/>
                             }
                         />
                         <Route
@@ -169,13 +167,14 @@ const App = () => {
                             }
                         />
                         <Route
-                                                    path={"/searchapi"}
-                                                    element={
-                                                        <ProtectedRoute>
-                                                            <SearchApi/>
-                                                        </ProtectedRoute>
-                                                    }
-                                                />
+                            path={"/searchapi"}
+                            element={
+                                <ProtectedRoute>
+                                    <SearchApi/>
+                                </ProtectedRoute>
+
+                            }
+                        />
                         <Route
                             path={"/routineassign/:userId"}
                             element={

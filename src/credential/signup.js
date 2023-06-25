@@ -16,7 +16,7 @@ const Signup = () => {
   let [weight, setWeight] = useState("");
   let [profilePicture, setProfilePicture] = useState(null);
   const fileInputRef = useRef(null);
-  const roles = ["USER", "ADMIN", "TRAINER"];
+  const roles = ["USER", "TRAINER"];
   let [selected, setSelected] = useState(roles[0]);
   const dispatch = useDispatch();
   const navigate = useNavigate();

@@ -53,3 +53,9 @@ export const deleteUserThunk = createAsyncThunk(
         }
         return response;
     });
+
+export const getTrainerRequestThunk = createAsyncThunk(
+    "admin/trainerRequest", async (token) => {
+        const response = await authService.getTrainerRequests(token);
+        return response;
+    });
