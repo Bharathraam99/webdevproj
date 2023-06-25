@@ -19,6 +19,7 @@ const NavigationSidebar = () => {
   console.log(currentUser);
   const { pathname } = useLocation();
   const dispatch = useDispatch();
+  const { role } = useSelector((state) => state.user);
 
   const [ignore, tuiter, active] = pathname.split("/");
   const links = ["home", "explore", "notifications", "messages", "bookmarks"];
@@ -53,7 +54,6 @@ const NavigationSidebar = () => {
         </span>
       </Link>
 
-
       {!currentUser && (
         <Link
           className={`list-group-item text-capitalize ${
@@ -82,7 +82,7 @@ const NavigationSidebar = () => {
           </span>
         </Link>
       )}
-      {currentUser && (
+      {currentUser && role === "USER" && (
         <Link
           className={`list-group-item text-capitalize ${
             active === "profile" ? "active" : ""
