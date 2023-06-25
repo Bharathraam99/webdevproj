@@ -60,14 +60,25 @@
   .navbar-container ul {
     display: inline-flex;
   }
+  .smallScreen {
+    margin-left: -10px;
+    max-width: 20%;
+  }
+  .nav.nav-pills.mb-2.mt-2 {
+    padding-left: 50px;
+  }
+  .nav-link.active {
+    background-color: blue;
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin-right: 10px;
+  }
 }
-.scrollable-navbar {
-  overflow-x: auto;
-  white-space: nowrap;
-}
+
 .search-input {
   width: 100%;
-  height: 50px; /* Adjust the maximum width as needed */
+  height: 50px;
 }
 .searchback {
   margin-left: 0px;

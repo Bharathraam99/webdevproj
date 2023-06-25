@@ -62,7 +62,7 @@ function Feed() {
                         </li>}
 
                         {role2 !== "ADMIN" && role2 !== "TRAINER" &&
-                        <li className="nav-item">
+                        <li className="nav-item smallScreen">
                             <NavLink
                                 to={token ? "/post" : "/postAnon"}
                                 className="nav-link"
@@ -73,7 +73,7 @@ function Feed() {
                             </NavLink>
                         </li>}
 
-                        {role2 === "USER" && <li className="nav-item">
+                        {role2 === "USER" && <li className="nav-item smallScreen">
                             <NavLink
                                 to="/profile"
                                 className="nav-link"
@@ -84,7 +84,7 @@ function Feed() {
                             </NavLink>
                         </li>}
 
-                        {role2 === "USER" && <li className="nav-item">
+                        {role2 === "USER" && <li className="nav-item smallScreen">
                             <NavLink
                                 to="/routine"
                                 className="nav-link"
@@ -96,7 +96,7 @@ function Feed() {
                         </li>}
 
 
-                        {role2 == "USER" && token && <li className="nav-item">
+                        {role2 == "USER" && token && <li className="nav-item smallScreen">
                             <NavLink
                                 to="/users"
                                 className="nav-link"
@@ -119,7 +119,7 @@ function Feed() {
                         </li>}
 
 
-                        <li className="nav-item">
+                        <li className="nav-item smallScreen">
                             <NavLink
                                 to="/searchapi"
                                 className="nav-link"
