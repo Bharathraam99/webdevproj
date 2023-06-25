@@ -169,9 +169,9 @@ const App = () => {
                         <Route
                             path={"/searchapi"}
                             element={
-                                <ProtectedRoute>
-                                    <SearchApi/>
-                                </ProtectedRoute>
+
+                                <SearchApi/>
+                               
 
                             }
                         />
