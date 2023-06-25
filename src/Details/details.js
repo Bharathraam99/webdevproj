@@ -23,7 +23,7 @@ const Details = () => {
   const navigate = useNavigate();
   let [detail, setDetail] = useState(null);
   const { posts } = useSelector((state) => state.posts);
-
+const role = currentUser?.user?.role;
   const load = async () => {
     if(token){
       const response = await api.get(
@@ -104,7 +104,7 @@ const Details = () => {
                           <span style={{ marginLeft: "30px", color: "gray" }}>
                             @{detail.user.username}
                           </span>
-                          {!detail.isFollowing && token && (
+                          {!detail.isFollowing && (token && role!="TRAINER") && (
                             <button
                               className="btn btn-primary unfollow"
                               onClick={() => {
@@ -114,7 +114,7 @@ const Details = () => {
                               FOLLOW
                             </button>
                           )}
-                          {detail.isFollowing && token &&(
+                          {detail.isFollowing && (token && role!="TRAINER") &&(
                             <button
                               className="btn btn-primary unfollow"
                               onClick={() => {
