@@ -94,9 +94,6 @@ const Users = () => {
                     <NavigationSidebar/>
                 </div>
                 <div className="col-9">
-                    {currentUser === null && (
-                        <div className="profile-message">PLEASE LOG IN TO SEE USERS</div>
-                    )}
                     {currentUser && followers && following && allUsers && (
                         <div>
                             <div className="nav-tabs-container">

@@ -1,6 +1,7 @@
 import {createSlice} from "@reduxjs/toolkit";
 //import {logoutThunk, profileThunk, registerThunk, updateUserThunk} from "../services/auth-thunks";
 import {
+    approveTrainerRequestThunk,
     deleteUserThunk,
     loginThunk,
     logoutThunk,
@@ -8,6 +9,7 @@ import {
     registerThunk,
     updateUserThunk
 } from "../services/auth-thunks";
+import {approveTrainerRequest} from "../services/auth-service";
 
 const initialState = {
     currentUser: null,
@@ -46,6 +48,9 @@ const authSlice = createSlice({
         },
         [deleteUserThunk.fulfilled]: (state, action) => {
             alert("User deleted successfully");
+        },
+        [approveTrainerRequestThunk.fulfilled]: (state, {payload}) => {
+            alert("Trainer Approved Successfully");
         }
         /*[registerThunk.fulfilled]: (state, { payload }) => {
             state.currentUser = payload;

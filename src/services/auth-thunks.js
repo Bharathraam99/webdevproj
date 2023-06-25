@@ -59,3 +59,10 @@ export const getTrainerRequestThunk = createAsyncThunk(
         const response = await authService.getTrainerRequests(token);
         return response;
     });
+
+
+export const approveTrainerRequestThunk = createAsyncThunk(
+    "admin/trainerRequestApproval", async ({token, userId}) => {
+        const response = await authService.approveTrainerRequest(token, userId);
+        return response;
+    });

@@ -113,7 +113,9 @@ const App = () => {
                         <Route
                             path="/users"
                             element={
-                                <Users/>
+                                <ProtectedRoute>
+                                    <Users/>
+                                </ProtectedRoute>
                             }
                         />
                         <Route
@@ -169,10 +171,7 @@ const App = () => {
                         <Route
                             path={"/searchapi"}
                             element={
-
                                 <SearchApi/>
-                               
-
                             }
                         />
                         <Route

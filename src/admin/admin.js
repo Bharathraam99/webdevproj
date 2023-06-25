@@ -5,7 +5,12 @@ import "./index.css";
 import {getAllUsersThunk} from "../services/follow-thunks";
 import {useDispatch, useSelector} from "react-redux";
 import {useNavigate} from "react-router-dom";
-import {deleteUserThunk, getTrainerRequestThunk, updateUserThunk} from "../services/auth-thunks";
+import {
+    approveTrainerRequestThunk,
+    deleteUserThunk,
+    getTrainerRequestThunk,
+    updateUserThunk
+} from "../services/auth-thunks";
 
 
 // UserTable component
@@ -115,28 +120,47 @@ const UserTable = ({users, editUsers, handleEdit, handleSave, handleDelete, hand
 // TrainerTable component
 
 const TrainerTable = ({requests}) => {
+    const dispatch = useDispatch();
+    const token = useSelector((state) => state.user.token);
+    const [tempRequest, setTempRequest] = useState(requests);
 
+    const handleApprove = async (userId) => {
+        await dispatch(approveTrainerRequestThunk({token, userId}));
+        setTempRequest(await dispatch(getTrainerRequestThunk(token)))
+    };
     return (
         <>
-            {JSON.stringify(requests)};
             <table className="table table-bordered">
                 <thead>
                 <tr>
 
                     <th>First Name</th>
                     <th>Last Name</th>
+                    <th>Approve</th>
 
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                    <td>
-                        give first name here
-                    </td>
-                    <td>
-                        give last name here
-                    </td>
-                </tr>
+
+                {tempRequest.payload.map((request) => {
+                    return (
+                        <tr>
+                            <td>
+                                {request.firstName}
+                            </td>
+                            <td>
+                                {request.lastName}
+                            </td>
+                            <td>
+                                <button className={"btn btn-success"} onClick={() => {
+                                    handleApprove(request.id)
+                                }}>Approve
+                                </button>
+                            </td>
+                        </tr>
+                    )
+                })}
+
                 </tbody>
             </table>
         </>
@@ -156,7 +180,7 @@ const Admin = () => {
     useEffect(() => {
         const load = async () => {
             await dispatch(getAllUsersThunk(token));
-            await dispatch(getTrainerRequestThunk(token));
+            setRequests(await dispatch(getTrainerRequestThunk(token)));
         };
         load();
     }, []);
@@ -239,8 +263,6 @@ const Admin = () => {
             }));
         }
     };
-    const handleApprove = () => {
-    };
     return (
         <>
             <div style={{backgroundColor: "#f2f2f2"}}>
@@ -252,30 +274,30 @@ const Admin = () => {
                     <div className="col-1"></div>
                     <div className="col-7">
                         <ul className="nav nav-pills mb-2 mt-2 ad flex-nowrap">
-                                                 <li className="nav-item">
-                                                   <button
-                                                     className={`nav-link ${activeTab === "users" ? "active" : ""}`}
-                                                     onClick={() => setActiveTab("users")}
-                                                   >
-                                                     User
-                                                   </button>
-                                                 </li>
-                                                 <li className="nav-item">
-                                                   <button
-                                                     className={`nav-link ${activeTab === "trainers" ? "active" : ""}`}
-                                                     onClick={() => setActiveTab("trainers")}
-                                                   >
-                                                     Trainer
-                                                   </button>
-                                                 </li>
-                        <div
-                                        className="highlight-line"
-                                        style={{
-                                          width: activeTab === "users" ? "120px" : "160px",
-                                          right: activeTab === "users" ? "0px" : "20px"
-                                        }}
-                                      ></div>
-                                               </ul>
+                            <li className="nav-item">
+                                <button
+                                    className={`nav-link ${activeTab === "users" ? "active" : ""}`}
+                                    onClick={() => setActiveTab("users")}
+                                >
+                                    User
+                                </button>
+                            </li>
+                            <li className="nav-item">
+                                <button
+                                    className={`nav-link ${activeTab === "trainers" ? "active" : ""}`}
+                                    onClick={() => setActiveTab("trainers")}
+                                >
+                                    Trainer
+                                </button>
+                            </li>
+                            <div
+                                className="highlight-line"
+                                style={{
+                                    width: activeTab === "users" ? "120px" : "160px",
+                                    right: activeTab === "users" ? "0px" : "20px"
+                                }}
+                            ></div>
+                        </ul>
                         {activeTab === "users" && (
                             <UserTable
                                 users={allUsers}
