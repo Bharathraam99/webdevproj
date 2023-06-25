@@ -129,19 +129,19 @@ const Profile = () => {
                     <div className="profile-container">
                         <Feed/>
                         <div className="row">
-                            <div className="col-2 wd-nav">
+                            <div className="col-lg-2 d-none d-lg-block wd-nav">
                                 <NavigationSidebar/>
                             </div>
                             <div className="col-1"></div>
-                            <div className="col-6">
+                      <div className="col-lg-6">
                                 {currentUser && (
                                     <div className="profile-details">
                                         <div className="profile-card">
                                             <div className="profile-card-header">
                                                 <img
                                                     className="rounded-circle profile-picture"
-                                                    height={108}
-                                                    width={108}
+                                                    height={88}
+                                                    width={88}
                                                     src={`${currentUser.fitUser.profilePicture}`}
                                                     alt="Profile Picture"
                                                 />
@@ -178,7 +178,7 @@ const Profile = () => {
                                 </button>
                             ) : (
                                 <button
-                                    className="rounded-pill btn btn-primary mt-2 ps-3 pe-3 fw-bold"
+                                    className="rounded-pill btn btn-primary mt-2 pe-3 fw-bold"
                                     onClick={handleEditProfile}
                                 >
                                     Edit Profile
@@ -187,14 +187,14 @@ const Profile = () => {
                           </span>
                                                 )}
                                                 <div>
-                          <span style={{marginLeft: "30px", color: "gray"}}>
+                          <span style={{marginLeft: "10px", color: "gray"}}>
                             @{currentUser.user.username}
                           </span>
-                                                </div>
-                                            </div>
+                                               </div>
+                         </div>
                                             <div className="profile-card-body">
                                                 <div className="profile-field">
-                                                    <span className="profile-label">First Name:</span>{" "}
+                                                    <span className="profile-label">FirstName:</span>{" "}
                                                     <input
                                                         type="text"
                                                         className={`profile-input square-input ${
@@ -206,7 +206,7 @@ const Profile = () => {
                                                     />
                                                 </div>
                                                 <div className="profile-field">
-                                                    <span className="profile-label">Last Name:</span>{" "}
+                                                    <span className="profile-label">LastName:</span>{" "}
                                                     <input
                                                         type="text"
                                                         className={`profile-input square-input ${

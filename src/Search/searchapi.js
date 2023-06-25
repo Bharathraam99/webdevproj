@@ -104,11 +104,11 @@ const SearchApi = () => {
         <Feed />
       </div>
       <div className="row">
-        <div className="col-2 wd-nav">
+        <div className="col-lg-2 d-none d-lg-block wd-nav">
           <NavigationSidebar />
         </div>
         <div className="col-1"></div>
-        <div className="col-7">
+        <div className="col-7 ">
           <div className="col-12 col-md-11 position-relative">
             <input
               placeholder="Search Workouts By Type"
@@ -176,6 +176,7 @@ const SearchApi = () => {
                 Back
               </button>
               {searchResults.length > 0 ? (
+
                 <table className="table table-bordered">
                   <thead>
                     <tr>
@@ -201,6 +202,7 @@ const SearchApi = () => {
               ) : (
                 <div></div>
               )}
+               <div className="mid">
               <table className="table table-bordered">
                 <thead>
                   <tr>
@@ -237,6 +239,7 @@ const SearchApi = () => {
                   ))}
                 </tbody>
               </table>
+              </div>
             </div>
           )}
         </div>

@@ -32,11 +32,11 @@
   font-size: 25px;
 }
 .edit-profile-button {
-  margin-left: 60px;
+  margin-left: -10px;
 }
 .edit-profile-button button {
   height: 40px;
-  width: 120px;
+  max-width:120px;
 }
 
 .profile-field {
@@ -65,7 +65,7 @@
 }
 
 .profile-label {
-  width: 130px;
+  width: 280px;
   font-weight: bold;
   font-size: 20px;
 }
@@ -75,7 +75,7 @@
   background-color: white;
   border: 1px solid black;
   border-radius: 0;
-  margin-left: 205px;
+
   text-align: center;
 
   width: 200px;
