@@ -20,9 +20,11 @@ const Users = () => {
 
     useEffect(() => {
         const load = async () => {
-            await dispatch(getFollowersThunk(token))
-            await dispatch(getFollowingThunk(token))
-            await dispatch(getAllUsersThunk(token))
+            if (token) {
+                await dispatch(getFollowersThunk(token))
+                await dispatch(getFollowingThunk(token))
+            }
+            await dispatch(getAllUsersThunk())
         };
         load();
     }, []);
@@ -94,15 +96,18 @@ const Users = () => {
                     <NavigationSidebar/>
                 </div>
                 <div className="col-9">
-                    {token === null && (
-                        <div
-                            className={`tab-pane ${
-                                activeTab === "all" ? "active" : ""
-                            }`}
-                            id="all"
-                        >
+                    {token === null && allUsers && (
+                        <>
+                            <div
+                                className={`tab-pane ${
+                                    activeTab === "all" ? "active" : ""
+                                }`}
+                                id="all"
+                            >
+
+                            </div>
                             {renderUsersList(allUsers)}
-                        </div>
+                        </>
                     )}
                     {currentUser && followers && following && allUsers && (
                         <div>

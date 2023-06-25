@@ -17,6 +17,6 @@ export const getFollowingThunk = createAsyncThunk("following/get", async (token)
 });
 
 
-export const getAllUsersThunk = createAsyncThunk("all/get", async (token) => {
-    return await followService.getAllUsers(token);
+export const getAllUsersThunk = createAsyncThunk("all/get", async () => {
+    return await followService.getAllUsers();
 });

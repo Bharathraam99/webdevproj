@@ -25,15 +25,21 @@ const Details = () => {
   const { posts } = useSelector((state) => state.posts);
 
   const load = async () => {
-    const response = await api.get(
-      `http://206.189.181.234:8087/home/profile/${userId}`,
-      {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      }
-    );
-    setDetail(response.data);
+    if(token){
+      const response = await api.get(
+          `http://206.189.181.234:8087/home/profile/${userId}`,
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+      );
+      setDetail(response.data);
+    }else{
+      const response = await api.get(`http://206.189.181.234:8087/no-auth/profile/${userId}`);
+      setDetail(response.data);
+    }
+
   };
 
   useEffect(() => {
@@ -98,7 +104,7 @@ const Details = () => {
                           <span style={{ marginLeft: "30px", color: "gray" }}>
                             @{detail.user.username}
                           </span>
-                          {!detail.isFollowing && (
+                          {!detail.isFollowing && token && (
                             <button
                               className="btn btn-primary unfollow"
                               onClick={() => {
@@ -108,7 +114,7 @@ const Details = () => {
                               FOLLOW
                             </button>
                           )}
-                          {detail.isFollowing && (
+                          {detail.isFollowing && token &&(
                             <button
                               className="btn btn-primary unfollow"
                               onClick={() => {
