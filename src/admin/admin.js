@@ -163,7 +163,7 @@ const Admin = () => {
             <div style={{backgroundColor: "#f2f2f2"}}>
                 <Feed/>
                 <div className="row">
-                    <div className="col-2 wd-nav">
+                    <div className="col-lg-2 d-none d-lg-block wd-nav">
                         <NavigationSidebar/>
                     </div>
                     <div className="col-1"></div>
