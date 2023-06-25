@@ -5,7 +5,7 @@ import { AiOutlineSearch } from "react-icons/ai";
 import Feed from "../Feed/feed";
 import "../Feed/feeds.css";
 import axios from "axios";
-
+// import { Card, ListGroup } from "react-bootstrap";
 const api = axios.create();
 
 const SearchApi = () => {
@@ -89,7 +89,7 @@ const SearchApi = () => {
   };
 
   const handleInputChange = (e) => {
-   setSuggestionClicked(false);
+    setSuggestionClicked(false);
     setSearchQuery(e.target.value);
   };
 
@@ -99,7 +99,7 @@ const SearchApi = () => {
   };
 
   return (
-    <>
+    <div style={{ backgroundColor: "#f2f2f2" }}>
       <div style={{ backgroundColor: "#8AC7DB" }}>
         <Feed />
       </div>
@@ -118,23 +118,26 @@ const SearchApi = () => {
               onKeyDown={handleSearch}
             />
             <AiOutlineSearch className="fs-3 position-absolute wd-nudge-upp" />
-            {searchQuery && !suggestionClicked && ( // Add condition to render suggestions only if suggestionClicked is false
-              <div className="suggestions-container">
-                {suggestions
-                  .filter((suggestion) =>
-                    suggestion.toLowerCase().includes(searchQuery.toLowerCase())
-                  )
-                  .map((suggestion) => (
-                    <div
-                      key={suggestion}
-                       className="suggestion-card"
-                      onClick={() => handleSuggestionClick(suggestion)}
-                    >
-                      {suggestion}
-                    </div>
-                  ))}
-             </div>
-            )}
+            {searchQuery &&
+              !suggestionClicked && ( // Add condition to render suggestions only if suggestionClicked is false
+                <div className="suggestions-container">
+                  {suggestions
+                    .filter((suggestion) =>
+                      suggestion
+                        .toLowerCase()
+                        .includes(searchQuery.toLowerCase())
+                    )
+                    .map((suggestion) => (
+                      <div
+                        key={suggestion}
+                        className="suggestion-card"
+                        onClick={() => handleSuggestionClick(suggestion)}
+                      >
+                        {suggestion}
+                      </div>
+                    ))}
+                </div>
+              )}
           </div>
           {searchQuery && (
             <div>
@@ -176,7 +179,6 @@ const SearchApi = () => {
                 Back
               </button>
               {searchResults.length > 0 ? (
-
                 <table className="table table-bordered">
                   <thead>
                     <tr>
@@ -202,49 +204,46 @@ const SearchApi = () => {
               ) : (
                 <div></div>
               )}
-               <div className="mid">
-              <table className="table table-bordered">
-                <thead>
-                  <tr>
-                    <th>Name</th>
-                    <th>Type</th>
-                    <th>Muscle</th>
-                    <th>Equipment</th>
-                    <th style={{ width: "130px" }}>Difficulty</th>
-                    <th style={{ width: "350px" }}>Instructions</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {details.map((detail) => (
-                    <tr key={detail.name}>
-                      <td>{detail.name}</td>
-                      <td>{detail.type}</td>
-                      <td>{detail.muscle}</td>
-                      <td>{detail.equipment}</td>
-                      <td>
+              {details.map((detail) => (
+                <div key={detail.name} className="card mb-3">
+                  <div className="card-body">
+                    <h5 className="card-title">
+                      <u>{detail.name}</u>
+                    </h5>
+                    <div className="card-text">
+                      <p>
+                        <strong>Type:</strong> {detail.type}
+                      </p>
+                      <p>
+                        <strong>Muscle:</strong> {detail.muscle}
+                      </p>
+                      <p>
+                        <strong>Equipment:</strong> {detail.equipment}
+                      </p>
+                      <p>
+                        <strong>Difficulty:</strong>{" "}
                         <span
+                          className="difficulty-indicator"
                           style={{
-                            display: "inline-block",
-                            width: "10px",
-                            height: "10px",
-                            borderRadius: "50%",
-                            backgroundColor: getDifficultyColor(detail.difficulty),
-                            marginRight: "5px",
+                            backgroundColor: getDifficultyColor(
+                              detail.difficulty
+                            ),
                           }}
                         ></span>
                         {detail.difficulty}
-                      </td>
-                      <td>{detail.instructions}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-              </div>
+                      </p>
+                      <p>
+                        <strong>Instructions:</strong> {detail.instructions}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              ))}
             </div>
           )}
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
