@@ -77,5 +77,15 @@ export const updateUser = async (user, token) => {
 
 };
 
+export const deleteUser=async (userId,token)=>{
+    const response = await api.post(`http://206.189.181.234:8087/admin/delete/${userId}`, null, {
+        headers: {
+            'Authorization': `Bearer ${token}`
+        }
+    });
+
+    return response.data;
+}
+
 
 

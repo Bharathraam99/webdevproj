@@ -43,3 +43,13 @@ export const updateUserThunk = createAsyncThunk(
         }
         return user;
     });
+
+
+export const deleteUserThunk = createAsyncThunk(
+    "user/deleteUser", async ({userId, token}) => {
+        const response = await authService.deleteUser(userId, token);
+        if (response.code === 400 || response.code === 500 || response.code === 404) {
+            throw new Error(response.message);
+        }
+        return response;
+    });
