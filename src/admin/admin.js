@@ -29,6 +29,7 @@ const Admin = () => {
             ...prevUsers,
             [userId]: true,
         }));
+        
     };
 
     const handleSave = (userId) => {
@@ -37,6 +38,7 @@ const Admin = () => {
             ...prevUsers,
             [userId]: false,
         }));
+        alert()
     };
 
     const handleDelete = async (userId) => {
