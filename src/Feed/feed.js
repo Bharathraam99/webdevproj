@@ -96,7 +96,7 @@ function Feed() {
                         </li>}
 
 
-                        {role2 !== "ADMIN" && token && <li className="nav-item">
+                        {role2 == "USER" && token && <li className="nav-item">
                             <NavLink
                                 to="/users"
                                 className="nav-link"
@@ -107,7 +107,7 @@ function Feed() {
                             </NavLink>
                         </li>}
 
-                        {!token && <li className="nav-item">
+                        {(!token || role2 == "TRAINER") && <li className="nav-item">
                             <NavLink
                                 to="/usersAnon"
                                 className="nav-link"

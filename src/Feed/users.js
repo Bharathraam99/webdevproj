@@ -35,7 +35,8 @@ const Users = () => {
         setActiveTab(tab);
     };
     const {currentUser} = useSelector((state) => state.user);
-
+const role = currentUser?.user?.role;
+console.log(role)
     /*const followers = [
       { id: 1, name: "John Doe", picture: "../images/john.jpg" },
       { id: 2, name: "John Doe", picture: "../images/john.jpg" },
@@ -96,7 +97,7 @@ const Users = () => {
                     <NavigationSidebar/>
                 </div>
                 <div className="col-9">
-                    {token === null && allUsers && (
+                    {(token === null || role == "TRAINER") && allUsers && (
                         <>
                             <div
                                 className={`tab-pane ${
@@ -109,7 +110,7 @@ const Users = () => {
                             {renderUsersList(allUsers)}
                         </>
                     )}
-                    {currentUser && followers && following && allUsers && (
+                    {role!="TRAINER" && followers && following && allUsers && (
                         <div>
                             <div className="nav-tabs-container">
                                 <ul className="nav nav-tabs">
