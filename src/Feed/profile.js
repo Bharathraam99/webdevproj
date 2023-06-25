@@ -16,6 +16,7 @@ import {profileThunk, updateUserThunk} from "../services/auth-thunks";
 
 const Profile = () => {
     const {currentUser} = useSelector((state) => state.user);
+    console.log(currentUser)
     const {search} = useSelector((state) => state.search);
 
     let [editMode, setEditMode] = useState(false);
@@ -43,7 +44,7 @@ const Profile = () => {
                 await dispatch(getFollowingThunk(token));
                 await dispatch(getFollowersThunk(token));
                 await dispatch(getPostThunk(token));
-                setNoOfPosts(
+                setNoOfPosts(currentUser &&
                     posts.filter(
                         (post) => post.postUserName === currentUser.user.username
                     ).length
@@ -56,12 +57,17 @@ const Profile = () => {
     }, []);
 
 
-    const setUserFields=async ()=>{
-        setFirstName(currentUser.user.firstName);
-        setLastName(currentUser.user.lastName);
-        setHeight(currentUser.fitUser.height);
-        setWeight(currentUser.fitUser.weight);
-    }
+     const setUserFields = () => {
+        if (currentUser) {
+          setFirstName(currentUser.user.firstName);
+          setLastName(currentUser.user.lastName);
+          setHeight(currentUser.fitUser.height);
+          setWeight(currentUser.fitUser.weight);
+        }
+      };
+       useEffect(() => {
+          setUserFields();
+        }, [currentUser]);
 
     const handleSave = async () => {
         setEditMode(false);
@@ -110,7 +116,7 @@ const Profile = () => {
                 await dispatch(getFollowingThunk(token));
                 await dispatch(getFollowersThunk(token));
                 await dispatch(getPostThunk(token));
-                setNoOfPosts(
+                setNoOfPosts(currentUser &&
                     posts.filter(
                         (post) => post.postUserName === currentUser.user.username
                     ).length
