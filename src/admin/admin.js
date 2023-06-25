@@ -251,24 +251,31 @@ const Admin = () => {
                     </div>
                     <div className="col-1"></div>
                     <div className="col-7">
-                        <ul className="nav nav-tabs mb-3">
-                            <li className="nav-item">
-                                <button
-                                    className={`nav-link ${activeTab === "users" ? "active" : ""}`}
-                                    onClick={() => setActiveTab("users")}
-                                >
-                                    Users
-                                </button>
-                            </li>
-                            <li className="nav-item">
-                                <button
-                                    className={`nav-link ${activeTab === "trainers" ? "active" : ""}`}
-                                    onClick={() => setActiveTab("trainers")}
-                                >
-                                    Trainers
-                                </button>
-                            </li>
-                        </ul>
+                        <ul className="nav nav-pills mb-2 mt-2 ad flex-nowrap">
+                                                 <li className="nav-item">
+                                                   <button
+                                                     className={`nav-link ${activeTab === "users" ? "active" : ""}`}
+                                                     onClick={() => setActiveTab("users")}
+                                                   >
+                                                     User
+                                                   </button>
+                                                 </li>
+                                                 <li className="nav-item">
+                                                   <button
+                                                     className={`nav-link ${activeTab === "trainers" ? "active" : ""}`}
+                                                     onClick={() => setActiveTab("trainers")}
+                                                   >
+                                                     Trainer
+                                                   </button>
+                                                 </li>
+                        <div
+                                        className="highlight-line"
+                                        style={{
+                                          width: activeTab === "users" ? "120px" : "160px",
+                                          right: activeTab === "users" ? "0px" : "20px"
+                                        }}
+                                      ></div>
+                                               </ul>
                         {activeTab === "users" && (
                             <UserTable
                                 users={allUsers}
