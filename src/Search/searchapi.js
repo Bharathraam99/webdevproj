@@ -108,7 +108,7 @@ const SearchApi = () => {
           <NavigationSidebar />
         </div>
         <div className="col-1"></div>
-        <div className="col-6">
+        <div className="col-7">
           <div className="col-12 col-md-11 position-relative">
             <input
               placeholder="Search Workouts By Type"
@@ -208,8 +208,8 @@ const SearchApi = () => {
                     <th>Type</th>
                     <th>Muscle</th>
                     <th>Equipment</th>
-                    <th style={{ width: "150px" }}>Difficulty</th>
-                    <th>Instructions</th>
+                    <th style={{ width: "130px" }}>Difficulty</th>
+                    <th style={{ width: "350px" }}>Instructions</th>
                   </tr>
                 </thead>
                 <tbody>
