@@ -94,6 +94,16 @@ const Users = () => {
                     <NavigationSidebar/>
                 </div>
                 <div className="col-9">
+                    {token === null && (
+                        <div
+                            className={`tab-pane ${
+                                activeTab === "all" ? "active" : ""
+                            }`}
+                            id="all"
+                        >
+                            {renderUsersList(allUsers)}
+                        </div>
+                    )}
                     {currentUser && followers && following && allUsers && (
                         <div>
                             <div className="nav-tabs-container">

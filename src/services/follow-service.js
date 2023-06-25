@@ -37,7 +37,7 @@ export const getFollowing = async (token) => {
 
 
 export async function getAllUsers(token) {
-    const response = await api.get(`${FOLLOWER_URL}/users`, {
+    const response = await api.get(`http://206.189.181.234:8087/no-auth/users`, {
         headers: {
             'Authorization': `Bearer ${token}`
         }

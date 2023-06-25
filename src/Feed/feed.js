@@ -10,12 +10,9 @@ import Post from "./post";
 function Feed() {
     const {currentUser} = useSelector((state) => state.user);
     const role2 = useSelector((state) => state.user.role);
-
-    console.log(currentUser)
     const {token} = useSelector((state) => state.user);
     const role = "ANON";
     const dispatch = useDispatch();
-    console.log(currentUser);
     const [activeTab, setActiveTab] = useState("feed");
     const navigate = useNavigate();
     const handleTabClick = (tab) => {
@@ -31,7 +28,6 @@ function Feed() {
     if (currentUser != null) {
         const role = currentUser.user.role;
     }
-    console.log(role)
     return (
         <>
             <div
@@ -54,7 +50,7 @@ function Feed() {
                 <div className="scrollable-navbar">
                     <ul className="nav nav-pills mb-2 mt-2 wd flex-nowrap">
 
-                        {role2==="ADMIN" && <li className="nav-item">
+                        {role2 === "ADMIN" && <li className="nav-item">
                             <NavLink
                                 to="/admin"
                                 className="nav-link"
@@ -65,7 +61,7 @@ function Feed() {
                             </NavLink>
                         </li>}
 
-                        {role2!=="ADMIN" && role2!=="TRAINER" &&
+                        {role2 !== "ADMIN" && role2 !== "TRAINER" &&
                         <li className="nav-item">
                             <NavLink
                                 to={token ? "/post" : "/postAnon"}
@@ -77,7 +73,7 @@ function Feed() {
                             </NavLink>
                         </li>}
 
-                        {role2==="USER" &&<li className="nav-item">
+                        {role2 === "USER" && <li className="nav-item">
                             <NavLink
                                 to="/profile"
                                 className="nav-link"
@@ -88,7 +84,7 @@ function Feed() {
                             </NavLink>
                         </li>}
 
-                        {role2==="USER" && <li className="nav-item">
+                        {role2 === "USER" && <li className="nav-item">
                             <NavLink
                                 to="/routine"
                                 className="nav-link"
@@ -100,7 +96,7 @@ function Feed() {
                         </li>}
 
 
-                        {role2!=="ADMIN" && <li className="nav-item">
+                        {role2 !== "ADMIN" && token && <li className="nav-item">
                             <NavLink
                                 to="/users"
                                 className="nav-link"
@@ -110,6 +106,18 @@ function Feed() {
                                 Users
                             </NavLink>
                         </li>}
+
+                        {!token && <li className="nav-item">
+                            <NavLink
+                                to="/usersAnon"
+                                className="nav-link"
+                                activeClassName="active"
+                                onClick={() => handleTabClick("users")}
+                            >
+                                Users
+                            </NavLink>
+                        </li>}
+
 
                         <li className="nav-item">
                             <NavLink
@@ -122,7 +130,7 @@ function Feed() {
                             </NavLink>
                         </li>
 
-                        {role2==="TRAINER" && <li className="nav-item">
+                        {role2 === "TRAINER" && <li className="nav-item">
                             <NavLink
                                 to="/trainerrequest"
                                 className="nav-link"

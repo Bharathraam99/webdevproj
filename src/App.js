@@ -118,6 +118,14 @@ const App = () => {
                                 </ProtectedRoute>
                             }
                         />
+
+                        <Route
+                            path="/usersAnon"
+                            element={
+                                <Users/>
+                            }
+                        />
+
                         <Route
                             path="/admin"
                             element={
@@ -145,9 +153,7 @@ const App = () => {
                         <Route
                             path="/details/:userId"
                             element={
-                                <ProtectedRoute>
-                                    <Details/>
-                                </ProtectedRoute>
+                                <Details/>
                             }
                         />
 
