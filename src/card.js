@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import "./login.css";
 import {loginThunk, profileThunk} from "./services/auth-thunks";
 import {useNavigate} from "react-router";
@@ -10,13 +10,25 @@ import Feed from "./Feed/feed.js";
 const Card = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
+    const {role} = useSelector(state => state.user);
     let [username, setUsername] = useState("");
     let [password, setPassword] = useState("");
+
+    useEffect(() => {
+        if (role === "USER") {
+            navigate("/post");
+        } else if (role === "ADMIN") {
+            navigate("/admin");
+        } else if (role === "TRAINER") {
+            navigate("/trainerrequest");
+        } else if (role === "UNASSIGNED") {
+            alert("REQUEST FOR TRAINER PENDING BY ADMIN. PLEASE WAIT...");
+        }
+    }, [role])
 
     const handleSubmit = async () => {
         try {
             await dispatch(loginThunk({username, password}));
-            navigate("/searchapi");
         } catch (e) {
             alert(e);
         }
