@@ -24,21 +24,45 @@ const Admin = () => {
 
     const [editUsers, setEditUsers] = useState({});
 
-    const handleEdit = (userId) => {
+    /*const handleEdit = (userId) => {
         setEditUsers((prevUsers) => ({
             ...prevUsers,
             [userId]: true,
         }));
-        
     };
 
     const handleSave = (userId) => {
+
         // Perform save logic here
         setEditUsers((prevUsers) => ({
             ...prevUsers,
             [userId]: false,
         }));
-        alert()
+    };*/
+    const handleEdit = (firstName, lastName, userId) => {
+        // Perform save logic here
+        setEditUsers((prevUsers) => ({
+            ...prevUsers,
+            [userId]: true,
+        }));
+
+
+    };
+
+    const handleSave = (userId) => {
+        const editedUser = editUsers[userId];
+
+// Access the specific fields you need from the editedUser object
+        const editedFirstName = editedUser.firstName;
+        console.log(editedFirstName)
+        const editedLastName = editedUser.lastName;
+        console.log(editedLastName)
+        alert(editedFirstName + " " + editedLastName);
+        // Perform save logic here
+        setEditUsers((prevUsers) => ({
+            ...prevUsers,
+            [userId]: false,
+        }));
     };
 
     const handleDelete = async (userId) => {
@@ -140,7 +164,7 @@ const Admin = () => {
                                 ) : (
                                     <button
                                         className="btn btn-primary rounded-pill mt-2 px-2 py-1 btn-sm edit"
-                                        onClick={() => handleEdit(user.userId)}
+                                        onClick={() => handleEdit(user.firstName, user.lastName, user.userId)}
                                     >
                                         Edit
                                     </button>
